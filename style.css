@@ -1,1 +1,24 @@
-/* ● */
+/* 🦄 기본 수업준비 */
+
+body {
+    max-width: 1000px;
+  }
+  
+.title {
+background-color: lightsteelblue;
+}
+
+.overflow {
+overflow: hidden;
+}
+.relative {
+position: relative;
+}
+
+.display-none {
+display: none;
+}
+
+.display-block {
+display: block;
+}

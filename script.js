@@ -1,10 +1,12 @@
 // ●
 
-/*c 02 this 키워드를 알아보자 1. 함수와 Object에서 사용하면 */
-document.write("02 this 키워드를 알아보자 1. 함수와 Object에서 사용하면");
-console.log("02 this 키워드를 알아보자 1. 함수와 Object에서 사용하면");
+/*🦄c2 this 1: 그 함수(method)를 가지고 있는 object (함수와 Object에서 사용하면) */
+/* 
+🚀this : 그 함수(method)를 가지고 있는 object
+그냥 썼을때 window 출력된것은 window 가 global object이라서 */
 
-//  ● this 그냥 쓰거나, 일반함수안에서 쓰면 window
+
+// 1) this 그냥 쓰거나, 일반함수안에서 쓰면 window
 // window:  global object
 console.log(this);
 
@@ -13,28 +15,35 @@ function a() {
 }
 a();
 
-// ● strict mode + 일반함수 안에서 쓰면 undefined
+
+// 2- 예외) strict mode + 일반함수 안에서 쓰면 undefined
 // 'use strict';
 function b() {
   console.log(this);
 }
 b();
 
-// ● object 안의 function에서 this는  , this를 가지고있는 함수의 object 전체를 의미함
+
+// 3-1) object 안의 ...function 안의 this는, this를 가지고있는 함수의 object 전체를 의미함
+console.log("3)")
 // ( object안의 function = method)
 
-var 오브젝트1 = {
+var object3 = {  /* 3-1) */
   data: "Kim",
+
   간지함수: function () {
-    console.log("간지");
+    console.log(this);
   },
 };
-오브젝트1.간지함수();
+object3.간지함수();
 
-// ● object1 안의 object2안의 function 안의 this : object2 (object 1 (x))
+
+// 3-2) object1 안의 object2안의 ...function 안의 this : object2 (object 1 (x))
 
 var object1 = {
-  object2: {
+
+  object2: {    /* 3-2) */
+
     간지함수: function () {
       console.log(this);
     },
@@ -42,25 +51,9 @@ var object1 = {
 };
 object1.object2.간지함수();
 
-// ●오브젝트 es6 문법. 모두 같은 뜻
-// 오브젝트이름:function(){}
-// 오브젝트이름:()=>{}
-// 오브젝트이름(){}
 
-window.간지나는함수 = function () {
-  console.log();
-};
 
-function 간지나는함수() {
-  console.log(this);
-}
-
-// ● this : 그 함수를 가지고 있는 object
-// 그냥 썼을때 window 출력된것은 window 가 global object이라서
-
-/*c 03 this 키워드를 알아보자 2. event listener와 constructor */
-document.write("03 this 키워드를 알아보자 2. event listener와 constructor");
-console.log("03 this 키워드를 알아보자 2. event listener와 constructor");
+/*🦄c3 this 키워드를 알아보자 2. event listener와 constructor */
 
 //● constructor  (나중에 자세히 설명함)
 // object를 여러개 만들고싶을때, function을 이용해서 여러개 만들 수 있음.
