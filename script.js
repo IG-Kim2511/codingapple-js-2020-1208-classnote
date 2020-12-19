@@ -1,6 +1,6 @@
 // ●
 
-/*🦄c2 this 1: 그 함수(method)를 가지고 있는 object (함수와 Object에서 사용하면) */
+/*🦄c2 this 1: object안의... this */
 /* 
 🚀this : 그 함수(method)를 가지고 있는 object
 그냥 썼을때 window 출력된것은 window 가 global object이라서 */
@@ -53,69 +53,89 @@ object1.object2.간지함수();
 
 
 
-/*🦄c3 this 키워드를 알아보자 2. event listener와 constructor */
+/*🦄c3 this 2: eventListener안. constructor안. object안. arrow function안의 this */
+/* 
+🍉this
 
-//● constructor  (나중에 자세히 설명함)
-// object를 여러개 만들고싶을때, function을 이용해서 여러개 만들 수 있음.
-// function 안에 this를 쓰면 constructor가 됨
-// this는 새로 생성되는 object이고, instance라고 불림.
+2) constructor안에서 this:
+: instance를 뜻함 
+:  = 새로 생성되는 object
+
+4) eventListener안에서 this:
+: e.currentTarget을 뜻함
+: 지금 이벤트가 동작하는 곳 
+: ex)  여기에서는 클릭이벤트가 동작하는 곳...'버튼'을 뜻함
+
+4-2)
+eventListener안의... this : =e.currentTarget. 
+
+eventListener안의 function안의...  this : window
+
+6)
+object안의... this :  object  (c2에서 다룬 내용)
+
+object안의 arrow function 안의..this : object
+
+object안의 function안의... this : window
+
+6-2) arrow function :
+ this를 재설정하지않고 그대로 물려받아서 사용.
+ arrow function을 사용하는 이유 &장점
+
+*/
+
+
+/* 2) constructor  (나중에 자세히 설명함)
+object를 여러개 만들고싶을때, function을 이용해서 여러개 만들 수 있음.
+function 안에 this를 쓰면 constructor가 됨
+this는 새로 생성되는 object이고, instance라고 불림. */
+
 function 기계() {
   this.이름 = "Kim";
 }
 var 오브젝트 = new 기계();
 
-//● this = e.currnetTarget  지금 이벤트 동작하는곳 : 버튼
+
+// 4)
 
 document.getElementById("버튼").addEventListener("click", function () {
-  console.log(this);
+  console.log(this);  /* 4) */
 });
 
 document.getElementById("버튼").addEventListener("click", function (e) {
-  console.log(e.currentTarget);
+  console.log(e.currentTarget); /* 4) */
 });
 
-// ●forEach
-// array자료보관함
-// array에 반복문 돌리기 : 어레이.forEach
-// forEach에는 콜백함수 추가
-// 내부코드가 array안의 데이터 숫자만큼 반복됨
-
-// ●여기서의 this : window
-// 함수가 쓰인 위치에 따라 this값이 변함
-// 이렇게 쌩으로 있는 콜백함수는 그냥 일반함수 취급.  일반 함수에서는 window
+// 4-2) ~~.forEach(function(){})
 
 document.getElementById("버튼2").addEventListener("click", function (e) {
   var 어레이 = [1, 2, 3];
   어레이.forEach(function () {
-    console.log(this);
+    console.log(this);  /* 4-2) eventListener안의 function안의...  this : window */
   });
 });
 
-//● object안의 콜백함수 안의  this : window
-// 근본없는 일반 함수 취급...
+
+// 6)
 
 var 오브젝트 = {
   이름들: ["김", "이", "박"],
   함수: function () {
-    오브젝트.이름들.forEach(function () {
-      console.log(this);
+    오브젝트.이름들.forEach(function () {     /*  6) */
+      console.log(this);  
     });
   },
 };
 
 오브젝트.함수();
 
-// ●arrow function :
-//  this를 재설정하지않고 그대로 물려받아서 사용.
-//  arrow function을 사용하는 이유 &장점
-// this가 자꾸 바뀌어서 사용하던 것들..이제는 더이상 사용안해도 됨.
-// arrow function 사용하면 되므로..
+// 6-2)
 
 var 오브젝트2 = {
   이름들: ["사과", "바나나", "딸기"],
   함수: function () {
-    오브젝트.이름들.forEach(() => {
-      console.log(this);
+    오브젝트.이름들.forEach(() => {   /* 6-2)arrow function : */
+      console.log(this);  
     });
   },
 };
