@@ -2,9 +2,14 @@
 
 /*🦄c2 this 1: object안의... this */
 /* 
-🚀this : 그 함수(method)를 가지고 있는 object
-그냥 썼을때 window 출력된것은 window 가 global object이라서 */
+🚀this : 
+그냥 썼을때 : window (그냥 썼을때 window 출력된것은 window 가 global object이라서 )
+object안의 this : object
+일반functtion 내부에서의 this:   전역객체 window 
 
+method(object안의 function)안의... this : 그 function을 가지고 있는 object 전체
+
+*/
 
 // 1) this 그냥 쓰거나, 일반함수안에서 쓰면 window
 // window:  global object
@@ -69,14 +74,14 @@ object1.object2.간지함수();
 4-2)
 eventListener안의... this : =e.currentTarget. 
 
-eventListener안의 function안의...  this : window
+eventListener안의 function안의...  this : = 그냥 일반함수안의 this  = window
 
 
 6) object안의... this :  object  (c2에서 다룬 내용)
 
 6-2)일반 함수안의 this : 고정되어 있음
 
-object안의 function안의... this : window
+object안의 function안의... this : 그 function을 가지고 있는 object
 
 
 6-3) arrow function 안의 this: 바로 위의 this 값이 무엇인가에 따라서 바뀜
