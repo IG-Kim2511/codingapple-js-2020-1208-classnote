@@ -71,19 +71,25 @@ eventListener안의... this : =e.currentTarget.
 
 eventListener안의 function안의...  this : window
 
-6)
-object안의... this :  object  (c2에서 다룬 내용)
 
-object안의 arrow function 안의..this : object
+6) object안의... this :  object  (c2에서 다룬 내용)
+
+6-2)일반 함수안의 this : 고정되어 있음
 
 object안의 function안의... this : window
 
-6-2) arrow function :
- this를 재설정하지않고 그대로 물려받아서 사용.
- arrow function을 사용하는 이유 &장점
 
+6-3) arrow function 안의 this: 바로 위의 this 값이 무엇인가에 따라서 바뀜
+ (👉4강에서 추가 설명)
+
+object안의 arrow function 안의..this : window
+
+object안의 function안의 arrow function 안의... this : object
+
+👉
+ this를 재설정하지않고 바로 위의 this 값을 그대로 물려받아서 사용.
+ arrow function을 사용하는 이유 &장점  
 */
-
 
 /* 2) constructor  (나중에 자세히 설명함)
 object를 여러개 만들고싶을때, function을 이용해서 여러개 만들 수 있음.
@@ -121,7 +127,7 @@ document.getElementById("버튼2").addEventListener("click", function (e) {
 var 오브젝트 = {
   이름들: ["김", "이", "박"],
   함수: function () {
-    오브젝트.이름들.forEach(function () {     /*  6) */
+    오브젝트.이름들.forEach(function () {     /*  6-2) */
       console.log(this);  
     });
   },
@@ -134,7 +140,7 @@ var 오브젝트 = {
 var 오브젝트2 = {
   이름들: ["사과", "바나나", "딸기"],
   함수: function () {
-    오브젝트.이름들.forEach(() => {   /* 6-2)arrow function : */
+    오브젝트.이름들.forEach(() => {   /* 6-3)arrow function : */
       console.log(this);  
     });
   },
