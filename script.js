@@ -8,7 +8,6 @@ object안의 this : object
 일반functtion 내부에서의 this:   전역객체 window 
 
 method(object안의 function)안의... this : 그 function을 가지고 있는 object 전체
-
 */
 
 // 1) this 그냥 쓰거나, 일반함수안에서 쓰면 window
@@ -151,3 +150,82 @@ var 오브젝트2 = {
   },
 };
 오브젝트2.함수();
+
+
+// 🦄c4 this3 : Arrow function의 this, arrow function쓰는 법
+
+/*
+2-1) 일반함수 만들기.
+2-2 실행 */
+function 함수(){}   /* 2-1)  */
+var 함수 = function( ){ }  /* 2-1)  */
+
+함수();  /* 2-2)  */
+
+
+/* 4)
+ Arrow function 쓰는 이유
+1. input, output 보기 쉬윔
+2. parameter 의 round braket ( ) 생략 가능 (parameter이 1개일때)
+3. curly braket { } 생략 가능
+4. return 생략 가능
+ */
+
+var 함수 = function(x){return x*2 }
+
+var 애로우2 = x => { return x * 2 }
+
+var 애로우3 = x => x * 2 ;
+
+
+/* 6)
+🚀arrow function의 this :
+arrow function을 쓰면 내부에서 this값을 쓸 때 밖에 있던 this값을 그대로 사용합니다.
+(함수를 쓸 때.. 함수가 쓰인 위치에 따라서 내부의 this값이 변한다고 저번시간에 배웠습니다. )
+
+근데 arrow function은 어디서 쓰든간에 내부의 this 값을 변화시키지 않습니다. 
+바깥에 있던 this의 의미를 그대로 내부에서도 사용하는 함수가 바로 arrow function 이라는 함수입니다. 
+(이게 장점 4이자 arrow function을 쓰는 핵심 이유입니다.) 
+*/
+
+/* 8)
+(eventListener + function 안의... this : = e.currentTarget. )
+
+eventListener + arrow function 안의... this : window
+
+👉this대신 e.currnetTarget 쓰면 e.currnetTarget 정확히 타겟팅 됨 
+ eventListener + arrow function 안의... e.currnetTarget */
+
+document.querySelector('.c3 #버튼3').addEventListener('click',(e)=>{
+console.log(this)
+});
+document.querySelector('.c3 #버튼4').addEventListener('click',(e)=>{
+console.log(e.currentTarget)
+});
+
+
+/* 10)
+(object + function안의... this : object)
+
+object + arrow function안의... this : window */
+console.log("👇")
+
+var object4 = {
+  이름: 111,
+  함수: function(){
+    return this
+  }
+}
+object4.함수();
+console.log(object4.함수())
+
+
+var object4_2 = {
+  이름: 222,
+  함수: ()=>{
+    return this
+  }
+}
+object4_2.함수();
+console.log(object4_2.함수())
+
