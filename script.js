@@ -1,13 +1,79 @@
 // ●
 
+/* 
+🚀this 공식 :  (c2~c4정리)
+
+--2강--
+
+⚡초보로써, 쓸때마다 'console.log(this);'해서 어느것인지 확인하는 습관 들이자
+
+그냥 썼을때 : window (그냥 썼을때 window 출력된것은 window 가 global object이라서 )
+
+object안의 this : object
+
+일반function 내부에서의 this:   전역객체 window 
+
+method(object안의 function)안의... this : 그 function을 가지고 있는 object 전체
+
+
+--3강--
+
+2) constructor안에서 this:
+: instance를 뜻함 
+:  = 새로 생성되는 object
+
+4) eventListener안에서 this:
+: e.currentTarget을 뜻함
+
+eventListener안의... this : =e.currentTarget. 
+
+eventListener안의 function안의...  this : = 그냥 일반함수안의 this  = window
+
+
+6) object안의... this :  object  (c2에서 다룬 내용)
+
+6-2)일반 함수안의 this : 고정되어 있음
+
+object안의 function안의... this : 그 function을 가지고 있는 object
+
+6-3) arrow function 안의 this: 무조건 바로 위의 this 값을 따라감
+ (👉4강에서 추가 설명)
+
+object안의 arrow function 안의..this : window
+
+object안의 function안의 arrow function 안의... this : object
+
+👉
+ this를 재설정하지않고 바로 위의 this 값을 그대로 물려받아서 사용.
+ arrow function을 사용하는 이유 &장점  
+
+
+--4강--
+
+🚀arrow function의 this :
+arrow function을 쓰면 내부에서 this값을 쓸 때 밖에 있던 this값을 그대로 사용합니다.
+
+(eventListener + function 안의... this : = e.currentTarget. )
+
+eventListener + arrow function 안의... this : window
+
+(object + function안의... this : object)
+
+object + arrow function안의... this : window
+*/
+
+
 /*🦄c2 this 1: object안의... this */
 /* 
-⚡this : 
+🚀this 공식 : 
+초보로써, 쓸때마다 'console.log(this);'해서 어느것인지 확인하는 습관 들이자
+
 그냥 썼을때 : window (그냥 썼을때 window 출력된것은 window 가 global object이라서 )
 object안의 this : object
 일반function 내부에서의 this:   전역객체 window 
 
 method(object안의 function)안의... this : 그 function을 가지고 있는 object 전체
+
 */
 
 // 1) this 그냥 쓰거나, 일반함수안에서 쓰면 window
