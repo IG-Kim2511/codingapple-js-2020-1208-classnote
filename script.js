@@ -13,6 +13,8 @@ object안의 this : object
 
 일반function 내부에서의 this:   전역객체 window 
 
+'use strict' mode + 일반함수 안에서 쓰면 undefined
+
 method(object안의 function)안의... this : 그 function을 가지고 있는 object 전체
 
 
@@ -71,6 +73,7 @@ object + arrow function안의... this : window
 그냥 썼을때 : window (그냥 썼을때 window 출력된것은 window 가 global object이라서 )
 object안의 this : object
 일반function 내부에서의 this:   전역객체 window 
+'use strict' mode + 일반함수 안에서 쓰면 undefined
 
 method(object안의 function)안의... this : 그 function을 가지고 있는 object 전체
 
@@ -86,7 +89,7 @@ function a() {
 a();
 
 
-// 2- 예외) strict mode + 일반함수 안에서 쓰면 undefined
+// 2- 예외) 'use strict' mode + 일반함수 안에서 쓰면 undefined
 // 'use strict';
 function b() {
   console.log(this);
@@ -296,7 +299,7 @@ object4_2.함수();
 console.log(object4_2.함수())
 
 
-//  🦄c5 c6 this & arrow function 연습문제 해설
+//  🦄c5 🦄c6 this & arrow function 연습문제 해설
 
 // 2) q: 사람.sayHi()라고 작성하면 콘솔창에 ‘안녕 나는 손흥민’ 이라는 글자가 나와야합니다. 
 
@@ -384,3 +387,8 @@ document.querySelector('.c5 #버튼3').addEventListener('click', function(){
   var that = this;
   setTimeout(function(){ console.log(that.innerHTML) }, 1000); 
 });
+
+
+
+// 🦄c7 var let const와 assign,declare,scope (변수 신문법 총정리 1.)
+// 👉js기초 15강
