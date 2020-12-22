@@ -398,3 +398,44 @@ document.querySelector('.c5 #버튼3').addEventListener('click', function(){
 
 // 🦄c9 c10 변수, temporal deadzone, uninitialized, eventlistener-for반복문-let(변수 연습문제 해설)
 // 👻캡쳐필기노트
+
+// 🦄c11 Template literals(backquote). Tagged literal
+
+// 2) Template literals(backquote)
+// -1. 문자 중간 엔터키 입력이 가능합니다
+var 문자 = `안녕
+하세요`;
+
+// -2. 변수를 집어넣을 때 편리합니다. 
+//  문자 중간에 ${변수명} 
+
+var 이름 = '손흥민';
+var 문자 = `안녕하세요 ${이름} 입니다`;
+
+// -3. HTML 템플릿 같은걸 보기쉽게 만들 수 있지요
+
+var 문자 = `
+<div>  
+  ${이름}
+</div>`;
+
+/* 
+4) Tagged Literals
+
+-2. 함수를 실행시킬 때 소괄호가 아니라, 문자(작명)를 이용해서 함수를 실행시킬 수 있습니다. 
+
+-3. ``만 넣어도 실행됨
+
+-4. 왜 이따위 짓거리를 하는 거냐면, 함수뒤에 `문자`를 붙여 실행하면 그 `문자열`을 해체분석할 수 있기 때문입니다.  */
+
+var 변수 = '손흥민';
+
+function 해체분석기(){
+  return 10 
+}
+
+해체분석기`안녕하세요 ${변수} 입니다`; /* 4-2) */
+// 해체분석기 `` /* 4-3) */
+
+// 
+
