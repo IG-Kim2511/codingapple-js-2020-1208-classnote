@@ -389,6 +389,12 @@ document.querySelector('.c5 #버튼3').addEventListener('click', function(){
 });
 
 
-
 // 🦄c7 var let const와 assign,declare,scope (변수 신문법 총정리 1.)
 // 👉js기초 15강
+
+
+// 🦄c8 Hoisting, global variable(window variable), closure (변수 신문법 총정리 2.)
+// 👻캡쳐필기노트
+
+// 🦄c9 c10 변수, temporal deadzone, uninitialized, eventlistener-for반복문-let(변수 연습문제 해설)
+// 👻캡쳐필기노트
