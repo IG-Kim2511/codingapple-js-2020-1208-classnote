@@ -483,3 +483,88 @@ function 해체분석기(글자들, 변수들1, 변수들2){
     }
 }  
 해체분석기`바지${pants} 양말${socks}`;
+
+
+// 🦄c13 Spread Operator 1. reference data type.  Deep copy
+/* 
+🍉2) spread operator :  “괄호제거 해주는 연산자”
+
+round bracket ( ), curly bracket { }, square bracket [ ] 모두 없애줌
+
+spread operator 는 
+function의 round bracket ( )안, 
+object의 curly bracket { }안, 
+array의 square bracket [ ]안
+에서 보통 사용하셔야합니다. 
+
+다른 곳에서 그냥 썼다간 에러가날 수 있습니다. 
+*/
+
+// -2)
+var 어레이 = ['hello', 'world'];
+console.log(어레이);
+/*  spread operator를 붙여서 출력해보시면 괄호가 제거된 ‘hello’, ‘world’만 콘솔창에 출력됩니다.  */
+console.log(...어레이);
+
+
+// -4)
+var 문자 = 'hello';
+console.log(문자[0]); /* 문자를 이런식으로 array처럼 출력할 수 있음 */
+console.log(문자[1]);
+
+// -6)
+var 문자 = 'hello';
+console.log(문자);
+
+console.log(...문자); /*  콘솔창에 h e l l o 라는 문자들이 출력됩니다.  */
+
+
+// 🍉4) Array 합치기/복사에 매우 자주 씁니다.
+
+var a = [1,2,3];
+var b = [4,5];
+var c = [...a, ...b]; /*  괄호를 없앤 a와 b를 집어넣는다는 소리입니다.  */
+
+
+
+/* -2) a라는 어레이를 복사해서 b를 만들때 : 
+
+4-2-2) reference data type(for Array, Object)라는 개념 :
+
+a와 b 변수는 [1,2,3]을 각각 따로 하나씩 가진게 아니라 값 공유가 일어납니다   */
+
+var a = [1,2,3];
+var b = a;  /*  */
+
+
+console.log(a);
+console.log(b); /*  */
+
+/* 4-2-4) Deep copy
+
+값을 공유하지 않고 각각 독립적인 값을 저장하도록 array를 복사하기
+
+spread를 이용해서 a값의 괄호를 제거해준 다음에 다시 괄호를 씌우는 겁니다. 
+
+*/
+
+var a = [1,2,3];
+var b = [...a]; /*  */
+
+console.log(a);
+console.log(b);  /*  */
+
+
+// 🍉 6) Object 합치기/복사에 매우 자주 씁니다.
+
+// -2) object 두개를 합치고 싶으면 어떻게 합니까.
+var o1 = { a : 1, b : 2 };
+var o2 = { c : 3, ...o1 };
+console.log(o2);
+
+// -4) 오브젝트의 key값 중복이 발생하면 어떻게될까요?
+var o1 = { a : 1, b : 2};
+var o2 = { a : 3, ...o1 };
+console.log(o2);
+
+
