@@ -650,3 +650,37 @@ person.인사.apply(person2, [1]); /*  = person.인사(1) */
 person.인사.apply(person2, [1,2,3]); /*-2)*/
 person.인사.call(person2, 1,2,3);   /*-2)*/
 
+
+// 🦄c15 함수 능력 업그레이드 (default parameter/arguments)
+
+
+/*  default 파라미터
+파라미터에 기본값(default 값)을 줄 수 있습니다.
+ */
+function 더하기 (a, b = 10){  /*  */
+  console.log(a + b)
+}
+
+더하기(1);  /*  파라미터값을 실수로 안적거나 했을 경우  */
+
+
+// Operator도 사용가능
+
+function 더하기 (a, b = 2 * 5){  /*  */
+  console.log(a + b)
+}
+
+더하기(1);
+/* 
+
+
+*/
+
+
+/* function 함수15(a,b,c){
+  for (var i = 0; i < arguments.length; i++){
+    console.log(arguments[i])
+  }
+}
+
+함수15(0,1,2); */
