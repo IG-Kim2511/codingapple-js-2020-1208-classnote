@@ -651,36 +651,80 @@ person.인사.apply(person2, [1,2,3]); /*-2)*/
 person.인사.call(person2, 1,2,3);   /*-2)*/
 
 
-// 🦄c15 함수 능력 업그레이드 (default parameter/arguments)
+// 🦄c15 default parameter/arguments (함수 능력 업그레이드)
 
 
-/*  default 파라미터
-파라미터에 기본값(default 값)을 줄 수 있습니다.
- */
+/* 🍉2) default 파라미터
+파라미터에 기본값(default 값)을 줄 수 있습니다. */
+
 function 더하기 (a, b = 10){  /*  */
-  console.log(a + b)
+  console.log(a + b)  /* 10+1 */
 }
 
 더하기(1);  /*  파라미터값을 실수로 안적거나 했을 경우  */
+// 더하기(1,2);  이미 정해진 argument가 있으면 적용 x
+// 더하기();    둘다 안적으면 NaN 출력됨
 
-
-// Operator도 사용가능
+// -4) Operator도 사용가능
 
 function 더하기 (a, b = 2 * 5){  /*  */
-  console.log(a + b)
+  console.log(a + b)  /* 1+2*5 */
 }
 
 더하기(1);
-/* 
+
+// -6) 다른 파라미터 사용 가능
+function 더하기 (a, b = 2 * a){ /*  */
+  console.log(a + b)  /* 3+2*3 */
+}
+
+더하기(3);
+
+//  -8) 다른 함수 사용가능
+function 임시함수(){  /*  */
+  return 10   
+}
+
+function 더하기 (a, b = 임시함수() ){ /*  */
+  console.log(a + b)  /* 3+10 */
+}
+
+더하기(3);
 
 
+/* 🍉4) arguments
+함수의 모든 파라미터들을 전부 한꺼번에 싸잡아서 다루고 싶은 경우가 있습니다. 
+
+함수로 넘어오는 파라미터들을 유사 배열의 형태array-like형식 (array는 아니지만, array의 형식을 취함.)로 가져온다! 
+
+4-4) 4-6) 그렇기 때문에 예제와 같이 배열 다루듯이 for문을 돌려서 사용할 수 있다.
 */
 
+// 4-2)
+function 함수(a,b,c){
+  console.log(arguments)  /*  [2,3,4]를 담은 array 비슷한 자료가 출력됩니다. */
+}
 
-/* function 함수15(a,b,c){
-  for (var i = 0; i < arguments.length; i++){
+함수(2,3,4);
+
+
+//4-4) i < arguments.length; : arguments의 갯수만큼 반복함
+function 함수15(a,b,c){
+  for (let i = 0; i < arguments.length; i++){   /* 4-4) */
     console.log(arguments[i])
   }
 }
+함수15(0,1,2);
 
-함수15(0,1,2); */
+
+//4-6)
+
+function makeSum () { /*  */
+let sum = 0;
+  for(let i=0; i < arguments.length; i++) {  /* 4-6) */
+  sum += arguments[i]
+  }  
+  console.log(sum);
+  return sum;  
+}
+  makeSum(4, 7, 8, 9);  /*  */
