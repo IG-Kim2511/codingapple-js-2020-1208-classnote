@@ -1,15 +1,14 @@
 // ●
 
 /* 
-🚀this 공식 :  (c2~c4정리)
+🚀this 공식 : 
 
 --2강--
-
 ⚡초보로써, 쓸때마다 'console.log(this);'해서 어느것인지 확인하는 습관 들이자
 
 그냥 썼을때 : window (그냥 썼을때 window 출력된것은 window 가 global object이라서 )
 
-object안의 this : object
+object안의 함수(method)안의 this : 그 function을 가지고 있는 object
 
 일반function 내부에서의 this:   전역객체 window 
 
@@ -19,7 +18,6 @@ method(object안의 function)안의... this : 그 function을 가지고 있는 o
 
 
 --3강--
-
 2) constructor안에서 this:
 : instance를 뜻함 
 :  = 새로 생성되는 object
@@ -29,19 +27,15 @@ method(object안의 function)안의... this : 그 function을 가지고 있는 o
 
 eventListener안의... this : =e.currentTarget. 
 
-eventListener안의 function안의...  this : = 그냥 일반함수안의 this  = window
+콜백함수 안의 this = 일반함수 안의 this = window
+(ex. eventlister안의 일반함수 안의, forEach함수안의 일반함수 =  콜백함수 )
 
-
-6) object안의... this :  object  (c2에서 다룬 내용)
-
-6-2)일반 함수안의 this : 고정되어 있음
-
-object안의 function안의... this : 그 function을 가지고 있는 object
+6) object안의 함수(method)안의 this : 그 function을 가지고 있는 object  (c2에서 다룬 내용)
 
 6-3) arrow function 안의 this: 무조건 바로 위의 this 값을 따라감
  (👉4강에서 추가 설명)
 
-object안의 arrow function 안의..this : window
+object안의 arrow function 안의..this : window  (👉6강에서 추가 설명)
 
 object안의 function안의 arrow function 안의... this : object
 
@@ -51,17 +45,24 @@ object안의 function안의 arrow function 안의... this : object
 
 
 --4강--
-
 🚀arrow function의 this :
 arrow function을 쓰면 내부에서 this값을 쓸 때 밖에 있던 this값을 그대로 사용합니다.
 
 (eventListener + function 안의... this : = e.currentTarget. )
 
 eventListener + arrow function 안의... this : window
+👉this대신 e.currnetTarget 쓰면 e.currnetTarget 정확히 타겟팅 됨 
+ eventListener + arrow function 안의... e.currnetTarget
 
 (object + function안의... this : object)
 
-object + arrow function안의... this : window
+object + arrow function안의... this : window 
+
+
+--6강--
+-a: 일반function + this : setTimeout안의 함수는 콜백함수 = 일반함수 👉 콜백함수의 this = window 
+
+-b: arrow function + this  = arrow function밖에 있던 this값 (eventListener +function안의..this) 그대로 사용 = e.currentTarget
 */
 
 
@@ -71,12 +72,11 @@ object + arrow function안의... this : window
 초보로써, 쓸때마다 'console.log(this);'해서 어느것인지 확인하는 습관 들이자
 
 그냥 썼을때 : window (그냥 썼을때 window 출력된것은 window 가 global object이라서 )
-object안의 this : object
+object안의 함수(method)안의 this : 그 function을 가지고 있는 object
 일반function 내부에서의 this:   전역객체 window 
 'use strict' mode + 일반함수 안에서 쓰면 undefined
 
 method(object안의 function)안의... this : 그 function을 가지고 있는 object 전체
-
 */
 
 // 1) this 그냥 쓰거나, 일반함수안에서 쓰면 window
@@ -142,20 +142,16 @@ object1.object2.간지함수();
 4-2)
 eventListener안의... this : =e.currentTarget. 
 
-eventListener안의 function안의...  this : = 그냥 일반함수안의 this  = window
+콜백함수 안의 this = 일반함수 안의 this = window
+(ex. eventlister안의 일반함수 안의, forEach함수안의 일반함수 =  콜백함수 )
 
 
-6) object안의... this :  object  (c2에서 다룬 내용)
-
-6-2)일반 함수안의 this : 고정되어 있음
-
-object안의 function안의... this : 그 function을 가지고 있는 object
-
+6) object안의 함수(method)안의 this : 그 function을 가지고 있는 object (c2에서 다룬 내용)
 
 6-3)⚡ arrow function 안의 this: 무조건 바로 위의 this 값을 따라감
  (👉4강에서 추가 설명)
 
-object안의 arrow function 안의..this : window
+object안의 arrow function 안의..this : 여기 예시에서는.. window (👉6강에서 추가 설명)
 
 object안의 function안의 arrow function 안의... this : object
 
@@ -190,10 +186,9 @@ document.getElementById("버튼").addEventListener("click", function (e) {
 document.getElementById("버튼2").addEventListener("click", function (e) {
   var 어레이 = [1, 2, 3];
   어레이.forEach(function () {
-    console.log(this);  /* 4-2) eventListener안의 function안의...  this : window */
+    console.log(this);  /* 4-2)콜백함수 안의 this = 일반함수 안의 this = window */
   });
 });
-
 
 // 6)
 
@@ -208,12 +203,12 @@ var 오브젝트 = {
 
 오브젝트.함수();
 
-// 6-2)
+// 6-3)
 
 var 오브젝트2 = {
   이름들: ["사과", "바나나", "딸기"],
   함수: function () {
-    오브젝트.이름들.forEach(() => {   /* 6-3)arrow function : */
+    오브젝트.이름들.forEach(() => {   /* 6-3)arrow function 안의 this: 여기서는 window */
       console.log(this);  
     });
   },
@@ -300,6 +295,7 @@ console.log(object4_2.함수())
 
 
 //  🦄c5 🦄c6 this & arrow function 연습문제 해설
+// 👻캡쳐필기노트
 
 // 2) q: 사람.sayHi()라고 작성하면 콘솔창에 ‘안녕 나는 손흥민’ 이라는 글자가 나와야합니다. 
 
@@ -323,7 +319,6 @@ var 사람 = {
 반복문이 돌때마다 a값은 1,2,3,4,5
 
 반복문 돌때마다 ~~~에 a를 더함
-
 
 👉여기서 활용 : 
 4-2) 합계 저장하는 변수 제작
@@ -372,13 +367,16 @@ document.querySelector('.c5 #버튼1').addEventListener('click', function(){
 
 /* -4) 일반함수 + 콜백함수 as arrow function + this
 
-setTimeout을 이용해서 1초 후에 this.innerHTML을 콘솔창에 출력하고 싶으면 어떻게 코드를 수정해야할까요?
+-q: setTimeout을 이용해서 1초 후에 this.innerHTML을 콘솔창에 출력하고 싶으면 어떻게 코드를 수정해야할까요?
 
-arrow function + this
- */
+-a: 일반function + this : setTimeout안의 함수는 콜백함수 = 일반함수 👉 콜백함수의 this = window 
+
+-b: arrow function + this  = arrow function밖에 있던 this값 (eventListener +function안의..this) 그대로 사용 = e.currentTarget
+*/
 
 document.querySelector('.c5 #버튼2').addEventListener('click', function(){
-  setTimeout(()=>{ console.log(this.innerHTML) }, 1000);  /*  */
+  //  4-a) setTimeout(function(){} 
+  setTimeout(()=>{ console.log(this.innerHTML) }, 1000);  /* 4-b) */
 });
 
 /* -6) 옛날 스타일
