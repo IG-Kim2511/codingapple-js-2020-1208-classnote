@@ -487,10 +487,10 @@ function 해체분석기(글자들, 변수들1, 변수들2){
 /* 
 🍉2) spread operator :  “괄호제거 해주는 연산자”
 
-round bracket ( ), curly bracket { }, square bracket [ ] 모두 없애줌
+curly bracket { }, square bracket [ ] 모두 없애줌
 
 spread operator 는 
-function의 round bracket ( )안, 
+
 object의 curly bracket { }안, 
 array의 square bracket [ ]안
 에서 보통 사용하셔야합니다. 
@@ -651,7 +651,7 @@ person.인사.apply(person2, [1,2,3]); /*-2)*/
 person.인사.call(person2, 1,2,3);   /*-2)*/
 
 
-// 🦄c15 default parameter/arguments (함수 능력 업그레이드)
+// 🦄c15 default parameter/ arguments (함수 능력 업그레이드)
 
 
 /* 🍉2) default 파라미터
@@ -728,3 +728,55 @@ let sum = 0;
   return sum;  
 }
   makeSum(4, 7, 8, 9);  /*  */
+
+
+// 🦄🦄c16 ...Rest 파라미터
+/* 
+🍉2) arguments VS Rest 파라미터
+
+arguments는 옛날 문법 ,  ...rest파라미터가 더 유연함
+
+
+2-4) spread operator VS Rest 파라미터
+
+spread operator :
+object의 curly bracket { }안, 
+array의 square bracket [ ]안
+
+...rest : 
+function의 round bracket ( )안
+*/
+
+
+// 🍉4) a,b제외하고, 그 뒤에 나오는 모든 파라미터는 중괄호에 감싸서 array가 됩니다. 
+
+function 함수16(a, b, ...파라미터들){    /* 👈  */
+  console.log(파라미터들) /*  [3,4,5,6,7]이 출력됩니다. */
+}
+
+함수16(1,2,3,4,5,6,7);
+
+
+/* 4-4)
+rest는 항상 마지막 파라미터로 넣으셔야합니다. 
+
+function 함수2(a, ...파라미터들, b){  👈
+  console.log(파라미터들)
+}
+
+4-6)
+2개 이상 사용할 수 없습니다
+
+function 함수2(a, ...파라미터들, ...파라미터들2){   👈
+  console.log(파라미터들)
+}
+*/
+
+//🍉6-q) 반복문 : 모든 파라미터를 전부 하나씩 콘솔창에 출력해주는 함수를 만들고 싶습니다. 
+
+function 함수16_2(a,b,...rest){
+  for (var i = 0; i < rest.length; i++) {    /* 👈  */
+    console.log(rest[i]);
+  }
+}
+함수16_2(1,2,3,4,5,6,7,8);
