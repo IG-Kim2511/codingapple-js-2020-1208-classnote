@@ -79,6 +79,14 @@ object안의 함수(method)안의 this : 그 function을 가지고 있는 object
 method(object안의 function)안의... this : 그 function을 가지고 있는 object 전체
 */
 
+/* 
+this의 의미:
+
+내가 담겨있는 object가 this의 정확한 의미
+*/
+
+
+
 // 1) this 그냥 쓰거나, 일반함수안에서 쓰면 window
 // window:  global object
 console.log(this);
@@ -370,14 +378,42 @@ document.querySelector('.c5 #버튼1').addEventListener('click', function(){
 -q: setTimeout을 이용해서 1초 후에 this.innerHTML을 콘솔창에 출력하고 싶으면 어떻게 코드를 수정해야할까요?
 
 -a: 일반function + this : setTimeout안의 함수는 콜백함수 = 일반함수 👉 콜백함수의 this = window 
+👻캡쳐필기노트(질문했었음)
 
 -b: arrow function + this  = arrow function밖에 있던 this값 (eventListener +function안의..this) 그대로 사용 = e.currentTarget
 */
 
-document.querySelector('.c5 #버튼2').addEventListener('click', function(){
+document.querySelector('.c5 #버튼2').addEventListener('click',
+ function(){
   //  4-a) setTimeout(function(){} 
   setTimeout(()=>{ console.log(this.innerHTML) }, 1000);  /* 4-b) */
 });
+
+
+/* -5) -4 추가설명
+this의 의미: 내가 담겨있는 object가 this의 정확한 의미
+
+-4-a)
+document.querySelector('~').setTimeout(function(){ this }, timeout);
+
+오브젝트1.setTimeout을 했다면, setTimeout 내의 function(){} 안에서의 this는 오브젝트1 로 설정됩니다.
+
+-4-b)
+document.querySelector('~').addEventListener('click', 
+function(){ 
+  setTimeout(function(){ this }, timeout);
+})
+
+콜백함수로써의 setTimeout 은 어디 담겨있지 않기 때문에 오브젝트1.setTimeout 이렇게 쓰진 않죠?
+
+실은 어디 담겨있습니다. window라는 오브젝트 보관함에 setTimeout이 미리 담겨있습니다.
+콘솔창에 window를 출력해서 까보시면 진짜 들어있습니다.
+
+window에 보관되어있기 때문에 그래서 우리가 setTimeout() 이렇게 써도 컴퓨터는 window.setTimeout() 이렇게 해석합니다.
+
+그래서 안에서 this를 쓰시면 window가 나오는게 정확한 원리데스
+*/
+
 
 /* -6) 옛날 스타일
 일반function + this를 that(작명)으로 변수화 + 변수 활용  */
