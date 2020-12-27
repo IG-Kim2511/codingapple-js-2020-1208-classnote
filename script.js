@@ -527,11 +527,14 @@ curly bracket { }, square bracket [ ] 모두 없애줌
 
 spread operator 는 
 
+function의 round bracket ( )안,
 object의 curly bracket { }안, 
 array의 square bracket [ ]안
 에서 보통 사용하셔야합니다. 
 
 다른 곳에서 그냥 썼다간 에러가날 수 있습니다. 
+
+(👉16강 spread operator VS Rest 파라미터)
 */
 
 // -2)
@@ -767,20 +770,27 @@ let sum = 0;
 
 
 // 🦄🦄c16 ...Rest 파라미터
+
 /* 
 🍉2) arguments VS Rest 파라미터
 
 arguments는 옛날 문법 ,  ...rest파라미터가 더 유연함
 
 
-2-4) spread operator VS Rest 파라미터
+2-4) 
+🚀...rest파라미터 공식   (👉18강에서 설명)
 
-spread operator :
-object의 curly bracket { }안, 
-array의 square bracket [ ]안
+1. 괄호 제거해줌
 
-...rest : 
-function의 round bracket ( )안
+2. 문자를 array로 만들어줌 
+
+3. function(...){}  : 함수 소괄호.... spread operator VS Rest 파라미터
+
+function 함수(...){}  👉 함수를 선언할때의 …은 rest 파라미터
+
+함수(...);  👉 함수를 사용할때의 …은 spread Operator입니다. 
+
+
 */
 
 
@@ -818,7 +828,7 @@ function 함수16_2(a,b,...rest){
 함수16_2(1,2,3,4,5,6,7,8);
 
 
-// 🦄🦄c17 18 Spread, rest 파라미터 연습문제 답안
+// 🦄🦄c17 18 Spread operator, ...rest 연습문제 답 .Math.max(.) .sort(.) .join(.)
 console.log('c18')
 
 /* 1)  spread 문제
