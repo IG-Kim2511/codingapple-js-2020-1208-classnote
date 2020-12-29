@@ -1091,64 +1091,104 @@ function 변경(obj){
 변경(이름1);
 console.log(이름1);
 
+// 🦄🦄c20 객체지향1. constructor (Object 생성기계)
+
+/* 2) 하드코딩
+자바스크립트로 학생 출석부 만들기
+
+var 학생1 = { name : 'Kim', age : 15 };
+var 학생2 = { name : 'Park', age : 15 };
+...계속..
+
+그냥 재할당 복사를 하면, reference data type 공유가 되서 하면 안됨.👉constructor활용
+*/
+
+/* 4) constructor
+
+-2) function
+
+-4) constructor이름은 대문자로 시작 - 일반함수와의 구별
+
+-6)
+this.name과 this.age를 집어넣어주시면 됩니다. 
+
+constructor안의 this= 새로생성되는 오브젝트= instance
+
+새로생성되는 오브젝트.name은 ‘Kim’을 대입해주세요~ 라는 뜻 
+
+4-8) 
+변수화 , new 이름(); 
+
+*/
+
+function Constructor20(){ /* 4-2) 4-4)*/
+  this.name = 'Kim'; /* 4-6) */
+  this.age = 15;
+}
+
+var 학생1 = new Constructor20(); /* 4-8)  */
+var 학생2 = new Constructor20();
+
+
+/* 6-2) 함수를 object 에 넣을때
+(this : 함수를 가지고 있는 object ) */
+
+var 학생1 = { 
+  name : 'Kim', 
+  age : 15 ,
+  sayHi : function(){      /*  */
+      console.log('안녕하세요' + this.name + ' 입니다'); 
+  }
+};
+
+
+/* -4) 함수를 constructor에 넣을때 */
+
+function Constructor20_6(){
+  this.name = 'Kim';
+  this.age = 15;
+  this.sayHi = function(){      /*  */
+    console.log('안녕하세요' + this.name + ' 입니다');  
+  }
+}
+var 학생1 = new Constructor20_6();
+var 학생2 = new Constructor20_6();
+
+학생2.sayHi();
+
+
+/* 8) 파라미터 활용  
+ : 각각 다른 name, age 값을 넣기*/
+
+function Constructor20_8(이름,나이){  /*  */
+  this.name = 이름; /*  */
+  this.age = 나이;
+  this.sayHi = function(){
+    console.log('안녕하세요' + this.name + ' 입니다');
+  }
+}
+var 학생1 = new Constructor20_8('Park',15); /*  */
+var 학생2 = new Constructor20_8();  /* parameter에 지정 안되있을때: undefined */
 
 
 
+/* 8) 밑의 오브젝트 constructor만들기
+var product1 = { name : 'shirts', price : 50000 };
+var product2 = { name : 'pants', price : 60000 };
 
+-4) 부가세() 라는 내부 함수를 실행하면 콘솔창에 상품가격 * 10% 만큼의 부가세금액이 출력하게하기
+*/
 
+function Product(상품명, 가격){
+  this.name = 상품명;
+  this.price = 가격;
+  this.부가세 = function(){   /* 8-4) */
+    console.log(this.price * 0.1)
+  }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var product1 = new Product('shirts', 50000);
+var product2 = new Product('pants', 60000);
 
 
 
