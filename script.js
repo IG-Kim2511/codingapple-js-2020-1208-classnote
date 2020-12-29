@@ -931,7 +931,6 @@ console.log( Math.max(...numbers) );  /*  */
 함수를 사용할 땐 …은 spread 연산자 입니다. 
 */
 
-
 /* 
 7) sort() : 글자를 알파벳순으로 정렬해주는 함수
 
@@ -941,8 +940,7 @@ sort()라는 array 내장함수를 붙여 사용합니다. (array에만 적용�
 
  console.log( [ 'b', 'c', 'a' ].sort() );
 
-
- /* 
+/* 
 sort()는 array에만 붙일 수 있습니다. 
 문자를 array화 시켜버리기
 bear라는 문자를 [‘b’, ‘e’, ‘a’, ‘r’] 이렇게 array에 담아서 알파벳을 정렬해버리는 겁니다. 
@@ -996,16 +994,102 @@ function 글자세기(글){
   글자세기('aaccbbb');
 
 
-  // 🦄🦄c19 Reference data type: array, object (Primitive data type : string, number)
+// 🦄🦄c19 Reference data type: array, object (Primitive data type : string, number)
+
+/* 2)
+Primitive data type들은 그냥 별건 없고 자료 자체가 변수에 저장되는 자료들입니다. 
+
+문자, 숫자 자료형  */
+
+var name = 'john';
+var age = 20;
 
 
+/* 4)Reference data type
+
+Array, Object 자료형은 reference data type에 속합니다.
+
+reference data type은 자료를 변수에 직접 저장하는게 아닌,
+
+자료가 저쪽에 있습니다 라는 화살표 (레퍼런스)를 변수에 저장합니다
+*/
+
+var 사람 = { name : 'Kim' };
 
 
+/* 6) 예제 1. 
+Primitive 자료형
+그럼 이름1, 이름2를 출력하면 각각 무엇이 나올까요?
+이름1은 변경했으니 ‘박’이고, 이름2는 복사만했지 변경하진 않았으니 ‘김’ 입니다. 
+*/
+
+var 이름1 = '김';
+var 이름2 = 이름1;
+이름1 = '박';
 
 
+/*  6-2) 
+이름1, 이름2를 출력하면 각각 무엇이 나올까요?
+이름1은 변경했으니 { name : ‘박’ } 이고, 이름2는 복사만했지 변경하진 않았으니 { name : ‘김’ } 입니다. 
+이름2는 우리가 값을 전혀 수정한 적이 없는데 바뀌어있습니다.
+ 이름1에는 {} 이게 저장된게 아니라 reference (화살표)가 저장되어있다고 했으니까요.  */
+ 
+var 이름1 = { name : '김' };
+var 이름2 = 이름1;
+이름1.name = '박';
 
 
+/* 8) 예제 2. 화살표가 할당되는 기준 & object 두개가 같은지 비교해보기
+ 새로운 {} object를 할당할 때마다 화살표가 새로 생성된다고 보시면 됩니다. 
 
+ */
+var 이름1 = { name : '김' };
+var 이름2 = { name : '박' };
+
+/* 8-2)
+바로 위의 예제에서 이름1 == 이름2 이렇게 두개를 같다고 비교하면 true가 나올까요 false가 나올까요?
+
+false가 나옵니다.
+== 등호로 비교하고 계신건 지금 object 두개가 아닙니다. 화살표 두개입니다.  */
+
+var 이름1 = { name : '김' };
+var 이름2 = { name : '김' };
+
+
+/* 10) 예제 3. 함수를 이용해 object를 변경하면 어떻게 될까
+ 근데 실행해봐도 이름1은 바뀌지 않습니다. 왜 그럴까요?
+
+-2)
+파라미터는 일종의 변수처럼 생성되고 사라지는 존재라고 보시면 됩니다.
+그냥 쉽게말하면 var 변수에요 변수
+
+-4)
+obj, 이름1 이 두개 변수는 서로 같은 화살표를 갖게 되며 { name : ‘김’ } 값을 공유합니다. 
+
+함수 내부를 잘 보시면 obj라는 변수는 obj = { name : ‘Park’ } 이렇게 재할당을 해주고 있죠? 이것은 
+
+★ obj라는 변수에 새로운 화살표를 재할당을 한 것이지
+★ 실제 이름1이라는 변수는 전혀 건드리지 않고 있기 때문입니다. 
+*/
+
+var 이름1 = { name : '김' };
+
+function 변경(obj){
+  obj = { name : 'park' };  /* 10-4) */
+}
+
+변경(이름1);  /* 10-2) 변경(var obj = 이름1); */
+
+
+/* -6) 여기서는  변경 성공 */
+var 이름1 = { name : '김' };
+
+function 변경(obj){
+  obj.name  = 'park'; /*  */
+}
+
+변경(이름1);
+console.log(이름1);
 
 
 
