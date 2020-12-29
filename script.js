@@ -1191,10 +1191,83 @@ var product1 = new Product('shirts', 50000);
 var product2 = new Product('pants', 60000);
 
 
+// 🦄🦄c21 객체지향2. prototype과 constructor. Array의 prototype
+
+/* 1) point : 
+
+-1) inheritance : '상속'
+
+proto : '최초의', '원래의'
+
+-2) JS의 상속기능문법 : prototype 과 constructor
+
+-3) prototype은 다른 자료형엔 안생기고 constructor 함수에만 몰래 생성됩니다. 
+
+-4)
+자식들이 값을 직접 소유하게 만들고 싶으면 constructor로 상속시키시면
+
+부모만 가지고 있고 그걸 참조해서 쓰게 만들고 싶으면 prototype으로 상속시키면
+*/
+
+
+/* 2) 
+-1) Constructor21의 prototype에 gender : ‘남’이라는 데이터를 추가
+
+-2) 이제  학생1, 학생2 같은 기계로부터 생성되는 모든 자식들도 gender라는 속성을  상속받아서 사용할 수 있습니다. 
+*/
+function Constructor21(){
+  this.name = 'Kim';
+  this.age = 15;
+}
+
+Constructor21.prototype.gender = '남';  /* 2-1)  */
+
+var 학생1 = new Constructor21();  /* 2-2)  */
+var 학생2 = new Constructor21();  
+
+console.log(학생1.gender); //'남'이 출력됩니다
 
 
 
+ /* 3) 작동원리
+ 오브젝트에서 값을 뽑을 때 
+
+(1) 학생1에 직접 gender라는 값이 있는가?
+(2) 그럼 부모 유전자에 gender라는 값이 있는가?
+(3) 그럼 부모의 부모 유전자에 있는가?
+(4) 그럼 부모의 부모의 부모의 유전자에 있는가?
+
+그래서 학생1이라는 오브젝트가 gender라는 값을 가지고 있지 않지만
+부모의 유전자(기계.prototype) 에 있는 gender라는 걸 출력할 수 있는 이유입니다. 
+*/
+
+function Constructor21_2(){ /* 3-2 */
+  this.name = 'Kim';
+  this.age = 15;
+}
+Constructor21_2.prototype.gender = '남';  /* 3-3 */
+
+var 학생1 = new Constructor21_2();  /* 3-1  */
+
+console.log(학생1.gender)
+
+/* 4) Array의 prototype
+
+자바스크립트 내장함수 sort, push, toString, map, forEach 등 이런 것들을 array에 붙여서 사용가능한데 혹시 그 이유가 궁금하지 않으셨습니까.
+
+Array로부터 생성된 자식들은 Array의 prototype에  부여되어있는 함수, 데이터들을 자유롭게 사용하실 수 있습니다. 
+ */
+
+var arr = [1,2,3]; /* 나의 코딩 */
+
+var arr = new Array(1,2,3); /* 컴퓨터가 받아들인 코딩 */
+
+console.log(Array.prototype);
 
 
+/* 4-2) Object의 prototype  
+object에도  prototype적용되어서 만들어짐*/
 
+var obj = {name: 'kim'} /* 나의코딩 */
 
+var obj = new Object(); /* 컴퓨터가 받아들인 코딩 */
