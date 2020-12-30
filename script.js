@@ -1477,7 +1477,113 @@ Constructor22_2.prototype.gender = '남';
 var 학생1 = new Constructor22_2();  /*  */
 
 
+// 🦄🦄c23 constructor, prototype 연습문제, 나만의 내장함수 라이브러리 만들기
+console.log('c23')
+
+/* 1) 하드코딩 */
+var 학생1 = { name : 'Kim', age : 20 }
+var 학생2 = { name : 'Park', age : 21 }
+var 학생3 = { name : 'Lee', age : 22 }
 
 
+/* 1-2) Constructor 소프트코딩 */
+
+function Student(이름, 나이){
+  this.name = 이름;
+  this.age = 나이;
+  this.sayHi = function(){
+    console.log('안녕 나는 ' + this.name + '이야');
+  }
+}
+
+var 학생1 = new Student('Kim2', 20);
+var 학생2 = new Student('Park2', 21);
+var 학생3 = new Student('Lee2', 22);
+
+/* 
+2) 오브젝트 안의 함수(메소드)에서 this를 출력하면 “함수의 주인- 오브젝트”이 맞습니다.
+
+근데 그 함수를 arrow function으로 만드시면.. this가 “함수의 주인- 오브젝트 ”으로 재정의되지 않습니다. 
+ */
+
+var 오브젝트23 = { sayHi : () => { console.log(this) } }
+오브젝트23.sayHi();
+
+/* ▲ 위 코드의 this는 무엇이 출력될까요?
+
+sayHi 함수의 주인인 오브젝트가 아니라 window가 출력됩니다.
+
+sayHi를 만들 때 그냥 일반함수였다면 this가 “함수의 주인”으로 뿅 하고 변할텐데
+
+arrow function을 쓰시면 this값이 변하지 않습니다. 그냥 밖에 있던 this를 그대로 적용합니다. (밖에 있던 this는 window죠) */
 
 
+/* 
+🍉3) 나만의 내장함수 라이브러리 만들기
+
+-2)모든 array에 붙일 수 있는,
+
+array 내에 있는 3이라는 값을 제거해주는 유용한 함수를 하나 만들고 싶습니다. 
+
+var arr = [1,2,3];
+arr.remove3();
+
+console.log(arr); //[1,2]
+이렇게 array뒤에 붙이기만 하면 array 내의 3이라는 모든 숫자 자료들이 삭제됩니다. 
+
+멋있게 이름은 remove3() 이라고 하겠습니다. 
+
+remove3()함수는 어떻게, 어디에 만들어야 모든 array에 쓸 수 있을까요?
+
+
+-3) 일단 모든 array에 pop(), sort(), push() 이런 함수를 붙일 수 있는 이유 혹시 기억나십니까.
+
+모든 array 자료형은 부모가 Array로 부터 new Array() 이런 식으로 만들어지기 때문에 
+
+Array라는 부모의 prototype에 있는 함수들을 자유롭게 가져다 쓸 수 있어서 그렇습니다. 
+
+그럼 우리도 Array의 prototype에 remove3라는 함수를 하나 추가해주면 되는게 아닐까요?
+*/
+
+
+// -4) pseudo-coding
+
+Array.prototype.remove3 = function(){
+  // this 에서 3을 찾아서 제거해주세요
+}
+
+/* 이렇게 코드를 짜면 되겠군요.
+
+위의 코드에서의 this라는 키워드는 현재 remove3이라는 함수를 작동시키는 object (여기서는 array) 라는 뜻입니다.
+
+그럼 this라는 array에서 3을 제거하는 코드는 어떻게 짭니까?
+
+저는 this라는 array 안에 있는 데이터를 하나하나 출력하면서 3과 비교하려고 반복문을 썼습니다.  */
+
+/*  -5)  remove3()함수는 
+
+-a. this라는 array의 길이만큼 반복문을 돌리는데, 돌리는 과정에서 this[i] 라고 쓰면서 this 안에 있는 모든 데이터를 출력해봅니다. 
+
+-b. 만약에 this[i]가 3이면 
+
+-c. this라는 array에서 i번째 자료를 제거해주세요 
+
+라고 썼습니다. (splice 라는 함수는 array안에 뭘 제거할 때 가끔씁니다. 구글 검색하시면 나와염) */
+
+Array.prototype.remove3 = function(){
+  for (var i = 0; i < this.length; i++) { /* 3-5-a) */
+    if ( this[i] === 3 ) {  /* 3-5-b) */
+      this.splice(i,1);   /* 3-5-c) */
+    }
+  }
+};
+
+var arr = [1,2,3,4];
+arr.remove3();
+
+console.log(arr); //[1,2,4]
+
+/* 
+내가 자주 사용할법한 내장함수들을 많이 만들어두시면 더 효율적인 코딩생활이 가능합니다. 
+
+혹은 이런 함수들 모아서 나중에 자바스크립트 라이브러리화 해서 사용해도 괜찮을 것 같습니다.  */
