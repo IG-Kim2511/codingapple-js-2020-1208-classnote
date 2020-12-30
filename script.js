@@ -1,127 +1,126 @@
 /* 🦄🦄c0 1분코딩 object정리 */
 
-      /* Object */
-      document.write(" Object.");
-      console.log("Object");
-      /* ex:  w3school에서 가져온 예시
+/* Object */
+document.write(" Object.");
+console.log("Object");
+/* ex:  w3school에서 가져온 예시
 
-          var person = {
-              firstName: "John",
-              lastName: "Doe",
-              id: 5566,
-              fullName: function() {
-                return this.firstName + " " + this.lastName;
-              }
-            };
-            console.log(person.fullName());
-
-      */
-      /*
-      ●
-      window object는 window 생략하고 쓸수있음
-      window.alert = alert
-      window.name = name
-
-      ●
-      objectName.property   : 일반.
-      objectName.method : 값이 함수인것
-
-      ●
-        this. :  method안에서 속해있는 객체(owner object )를 지정하는 키워드
-
-      ●
-      자바스크립트에서 undefined, null...etc같은 예외를 제외하고는 다 object임
-      function도 object의 한종류임. (다른 언어와의 차이점)
-      console.log도 object임.
-      console 객체에서 log 메서드를 ( );불러온것
-      =document 객체에서 write 메서드를 ( );불러온것
-      =person객체의 introduce메서드를 ( ); 불러오는것
-
-            */
-
-      //전역객체. window생략하고 쓸수있고,
-      // window object  // object();
-      //window.alert(111);   // alert();
-      console.log(window.name); // name(); 그냥 타이핑하면 console에 빈줄로 표시됨
-      /*  */
-
-      /////////////////////////////////
-
-      var person2 = {
-        username: "Zena",
-        age: 20,
-        introduce: function () {
-          console.log(
-            "안녕? 나는" + this.username + "야. 나이는 " + this.age + " 살이야."
-          );
-        },
+    var person = {
+        firstName: "John",
+        lastName: "Doe",
+        id: 5566,
+        fullName: function() {
+          return this.firstName + " " + this.lastName;
+        }
       };
-      person2.introduce();
+      console.log(person.fullName());
+*/
 
-      //
-      var object2 = {
-        username: "kiki",
-        age: 20,
-        introduce: function () {
-          console.log(`hi? i'm ${this.username} nice to meet you`);
-        },
-      };
-      object2.introduce();
+/*
+●
+window object는 window 생략하고 쓸수있음
+window.alert = alert
+window.name = name
 
-      console.log(object2.age);
+●
+objectName.property   : 일반.
+objectName.method : 값이 함수인것
 
-      /////////////////////////////////////////
+●
+  this. :  method안에서 속해있는 객체(owner object )를 지정하는 키워드
 
-      var person = {};
-      person.username = " 동네79"; // objectName.property.: 속성.property
-      person.age = 12;
+●
+자바스크립트에서 undefined, null...etc같은 예외를 제외하고는 다 object임
+function도 object의 한종류임. (다른 언어와의 차이점)
+console.log도 object임.
+console 객체에서 log 메서드를 ( );불러온것
+=document 객체에서 write 메서드를 ( );불러온것
+=person객체의 introduce메서드를 ( ); 불러오는것
+*/
 
-      person.introduce = function () {
-        //objectName.method : 값이 함수인것   메서드 method
-        console.log(
-          "안녕? 나는" + this.username + "야. 나이는 " + this.age + " 살이야."
-        );
-      };
-      person.introduce();
+//전역객체. window생략하고 쓸수있고,
+// window object  // object();
+//window.alert(111);   // alert();
+console.log(window.name); // name(); 그냥 타이핑하면 console에 빈줄로 표시됨
+/*  */
 
-      //
-      var object3 = {};
-      object3.username = "kiki3";
-      object3.age = 12;
+/////////////////////////////////
 
-      object3.introduce = function () {
-        console.log(`hi? I'm ${this.username}`);
-      };
-      object3.introduce();
+var person2 = {
+  username: "Zena",
+  age: 20,
+  introduce: function () {
+    console.log(
+      "안녕? 나는" + this.username + "야. 나이는 " + this.age + " 살이야."
+    );
+  },
+};
+person2.introduce();
 
-      /* 같은형식 method .. 모든게 object */
-      console.log("constructor");
-      document.write("constructor");
+//
+var object2 = {
+  username: "kiki",
+  age: 20,
+  introduce: function () {
+    console.log(`hi? i'm ${this.username} nice to meet you`);
+  },
+};
+object2.introduce();
 
-      /* 생성자constructor
-      객체를 붕어빵처럼 계속 만들수있는 툴
-      이름 지을때 대문자로 시작해주기로 약속
-      
-      인스턴스(instance ) : 생성된 개별 객체
-      new반드시붙일것.
-      안붙이면 this가 윈도우전역객체를 가리키게 됨
-            */
+console.log(object2.age);
 
-      function Person(username, age) {
-        this.username = username;
-        this.age = age;
-        this.introduce = function () {
-          console.log(
-            "안녕? 나는" + this.username + " 야. 나이는" + this.age + " 살이야."
-          );
-        };
-      }
+/////////////////////////////////////////
 
-      var p1 = new Person("키민", 20);
-      var p2 = new Person("키민2", 30);
+var person = {};
+person.username = " 동네79"; // objectName.property.: 속성.property
+person.age = 12;
 
-      p1.introduce();
-      p2.introduce();
+person.introduce = function () {
+  //objectName.method : 값이 함수인것   메서드 method
+  console.log(
+    "안녕? 나는" + this.username + "야. 나이는 " + this.age + " 살이야."
+  );
+};
+person.introduce();
+
+//
+var object3 = {};
+object3.username = "kiki3";
+object3.age = 12;
+
+object3.introduce = function () {
+  console.log(`hi? I'm ${this.username}`);
+};
+object3.introduce();
+
+/* 같은형식 method .. 모든게 object */
+console.log("constructor");
+document.write("constructor");
+
+/* 생성자constructor
+객체를 붕어빵처럼 계속 만들수있는 툴
+이름 지을때 대문자로 시작해주기로 약속
+
+인스턴스(instance ) : 생성된 개별 객체
+new반드시붙일것.
+안붙이면 this가 윈도우전역객체를 가리키게 됨
+*/
+
+function Person(username, age) {
+  this.username = username;
+  this.age = age;
+  this.introduce = function () {
+    console.log(
+      "안녕? 나는" + this.username + " 야. 나이는" + this.age + " 살이야."
+    );
+  };
+}
+
+var p1 = new Person("키민", 20);
+var p2 = new Person("키민2", 30);
+
+p1.introduce();
+p2.introduce();
  
 
 // 🦄🦄c0-2 this 공식 정리
@@ -1587,3 +1586,70 @@ console.log(arr); //[1,2,4]
 내가 자주 사용할법한 내장함수들을 많이 만들어두시면 더 효율적인 코딩생활이 가능합니다. 
 
 혹은 이런 함수들 모아서 나중에 자바스크립트 라이브러리화 해서 사용해도 괜찮을 것 같습니다.  */
+
+
+// 🦄🦄c24 Object.create(부모object); (ES5 상속기능)
+/* 
+상속을 이용해서 오브젝트를 만들고 싶다면 이거보다 더 쉬운 문법이 없습니다. 
+
+하지만 class문법에 밀려 인지도는 낮습니다.
+
+하지만 요즘 개발자들은 있어보이게 class, 그리고 extends 문법을 이용해서 상속의 상속기능을 만들어냅니다. (👉 다음강의)
+
+2)
+자식이라는 object는 부모를 prototype으로 두게 됩니다. 
+
+그럼 자식.name 해도 ‘Kim’이 출력되고요, 자식.age 해도 50이 출력됩니다. 
+
+자식이 성공적으로 부모 속성들을 상속했죠?
+*/
+
+var 부모 = { name : 'Kim', age : 50 };
+var 자식 = Object.create(부모); /* 2) */
+
+console.log(자식.age); //50나옴
+
+/* 2-2)
+자식이 age를 바꾸고 싶으면 어떻게 하죠?
+
+2-3)
+자료 꺼내는 순서
+자식.age를 꺼내주세요~ 라고 하면
+1. 자식이라는 object가 직접 age를 가지고 있으면 그거 출력
+2. 없으면 자식의 부모 prototype을 뒤져서 age가 거기 있으면 그거 출력
+3. 거기도 없으면 부모의 부모 prototype을 뒤져서.. 
+이런 순서로 age를 출력합니다. 
+*/
+
+var 부모 = { name : 'Kim', age : 50 };
+var 자식 = Object.create(부모);
+자식.age  = 20;   /* 2-2) */
+
+console.log(자식.age); //20 나옴
+
+
+/* 4)
+3세대, 4세대..계속 상속해서 만들 수 있음 
+
+손자.age하면 무엇이 나올까요?
+20이 출력됩니다. */
+
+var 부모 = { name : 'Kim', age : 50 };
+var 자식 = Object.create(부모);
+자식.age  = 20;
+
+var 손자 = Object.create(자식); //4)
+
+console.log(손자.age);
+
+
+
+
+
+
+
+
+
+
+
+
