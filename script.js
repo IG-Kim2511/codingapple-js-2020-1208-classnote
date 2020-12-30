@@ -1,4 +1,130 @@
-// ●
+/* 🦄🦄c0 1분코딩 object정리 */
+
+      /* Object */
+      document.write(" Object.");
+      console.log("Object");
+      /* ex:  w3school에서 가져온 예시
+
+          var person = {
+              firstName: "John",
+              lastName: "Doe",
+              id: 5566,
+              fullName: function() {
+                return this.firstName + " " + this.lastName;
+              }
+            };
+            console.log(person.fullName());
+
+      */
+      /*
+      ●
+      window object는 window 생략하고 쓸수있음
+      window.alert = alert
+      window.name = name
+
+      ●
+      objectName.property   : 일반.
+      objectName.method : 값이 함수인것
+
+      ●
+        this. :  method안에서 속해있는 객체(owner object )를 지정하는 키워드
+
+      ●
+      자바스크립트에서 undefined, null...etc같은 예외를 제외하고는 다 object임
+      function도 object의 한종류임. (다른 언어와의 차이점)
+      console.log도 object임.
+      console 객체에서 log 메서드를 ( );불러온것
+      =document 객체에서 write 메서드를 ( );불러온것
+      =person객체의 introduce메서드를 ( ); 불러오는것
+
+            */
+
+      //전역객체. window생략하고 쓸수있고,
+      // window object  // object();
+      //window.alert(111);   // alert();
+      console.log(window.name); // name(); 그냥 타이핑하면 console에 빈줄로 표시됨
+      /*  */
+
+      /////////////////////////////////
+
+      var person2 = {
+        username: "Zena",
+        age: 20,
+        introduce: function () {
+          console.log(
+            "안녕? 나는" + this.username + "야. 나이는 " + this.age + " 살이야."
+          );
+        },
+      };
+      person2.introduce();
+
+      //
+      var object2 = {
+        username: "kiki",
+        age: 20,
+        introduce: function () {
+          console.log(`hi? i'm ${this.username} nice to meet you`);
+        },
+      };
+      object2.introduce();
+
+      console.log(object2.age);
+
+      /////////////////////////////////////////
+
+      var person = {};
+      person.username = " 동네79"; // objectName.property.: 속성.property
+      person.age = 12;
+
+      person.introduce = function () {
+        //objectName.method : 값이 함수인것   메서드 method
+        console.log(
+          "안녕? 나는" + this.username + "야. 나이는 " + this.age + " 살이야."
+        );
+      };
+      person.introduce();
+
+      //
+      var object3 = {};
+      object3.username = "kiki3";
+      object3.age = 12;
+
+      object3.introduce = function () {
+        console.log(`hi? I'm ${this.username}`);
+      };
+      object3.introduce();
+
+      /* 같은형식 method .. 모든게 object */
+      console.log("constructor");
+      document.write("constructor");
+
+      /* 생성자constructor
+      객체를 붕어빵처럼 계속 만들수있는 툴
+      이름 지을때 대문자로 시작해주기로 약속
+      
+      인스턴스(instance ) : 생성된 개별 객체
+      new반드시붙일것.
+      안붙이면 this가 윈도우전역객체를 가리키게 됨
+            */
+
+      function Person(username, age) {
+        this.username = username;
+        this.age = age;
+        this.introduce = function () {
+          console.log(
+            "안녕? 나는" + this.username + " 야. 나이는" + this.age + " 살이야."
+          );
+        };
+      }
+
+      var p1 = new Person("키민", 20);
+      var p2 = new Person("키민2", 30);
+
+      p1.introduce();
+      p2.introduce();
+ 
+
+// 🦄🦄c0-2 this 공식 정리
 
 /* 
 🚀this 공식 : 
