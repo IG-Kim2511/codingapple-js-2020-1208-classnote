@@ -1397,3 +1397,87 @@ object에도  prototype적용되어서 만들어짐*/
 var obj = {name: 'kim'} /* 나의코딩 */
 
 var obj = new Object(); /* 컴퓨터가 받아들인 코딩 */
+
+
+// 🦄🦄c22 객체지향3. prototype, __proto__
+
+/* 
+1) prototype은 constructor 함수에만 몰래 생성됩니다.
+
+object, array 이런거 만들어도 거기엔 prototype이 없습니다. 
+
+
+1-2) object 같은걸 상속하고 싶으면?
+
+constructor 함수를 만들던가..
+Object.create()를 쓰거나 
+class를 쓰거나 
+셋 중 하나 하시면 됩니다
+*/
+
+
+/* 
+2) ~~.__proto__ : 부모의 prototype 
+
+~~.__proto__ : 부모의 prototype (여기 예시에서는 기계constructor)
+~~.prototype : 나의 prototype
+
+*/
+function Constructor22(){
+  this.name = 'Kim';
+  this.age = 15;
+}
+var 학생1 = new Constructor22();
+console.log(학생1.__proto__);
+console.log(Constructor22.prototype);
+
+/* 
+3) __proto__를 직접 등록, '부모-자식' 강제 등록시킴 
+
+서로 독립된 2개의 오브젝트를 '부모-자식' 강제 등록시킴 
+
+(별로 중요한 것은 아님)
+*/
+
+var 부모 = { name : 'Kim' };
+
+var 자식 = {};
+
+자식.__proto__ = 부모;  /*  */
+
+console.log(자식.name); /*  */
+
+/*
+4. 실은 콘솔창에 prototype 정보들이 항상 출력됩니다.
+
+콘솔창에서 학생1 한번 출력해보십시오.
+( Constructor22_2.prototype의 __proto__도 조회가능합니다)
+
+콘솔창에 name, age도 나오고,  __proto__ 이런 것도 나옵니다. 
+
+ __proto__가 뭐랬습니까. 부모의 유전자라고 했죠?
+
+이렇게 쭉 내 부모의 부모까지 탐색할 수도 있습니다. 
+
+탐색해보시면 모든 object 자료형의 조상은 Object() 라는 Constructor이며 (일명 Object.prototype)
+
+모든 array 자료형의 조상도 Object()입니다. (중간에 Array()라는 부모도 있고요)
+
+모든 함수 자료형의 조상도 Object() 입니다.
+
+(그래서 자바스크립트는 모든게 다 Object라고 말하는 것입니다.)
+*/
+
+function Constructor22_2(){ /*  */
+  this.name = 'Kim';
+  this.age = 15;
+}
+Constructor22_2.prototype.gender = '남';
+
+var 학생1 = new Constructor22_2();  /*  */
+
+
+
+
+
+
