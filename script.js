@@ -1215,8 +1215,8 @@ p1.introduce();
 p2.introduce();
  
 
-
 // 🦄🦄c20 객체지향1. constructor (Object 생성기계)
+console.log('c20')
 
 /* 
 0) object문법 : 객체지향 프로그래밍(Object-oriented programming : OOP) 
@@ -1257,8 +1257,8 @@ function Constructor20(){ /* 4-2) 4-4)*/
   this.age = 15;
 }
 
-var 학생1 = new Constructor20(); /* 4-8)  */
-var 학생2 = new Constructor20();
+var student20 = new Constructor20(); /* 4-8)  */
+var student20_2 = new Constructor20();
 
 
 /* 6-2) 함수를 object 에 넣을때
@@ -1669,7 +1669,7 @@ class Parents부모25{  //-1) -2)
 }
 
 var child자식25 = new Parents부모25();  // -3)
-// console.log(child자식25)
+console.log(child자식25)
 
 /* 
 4) 함수를 추가
@@ -1693,7 +1693,7 @@ class Parents부모25_2{
 }
 
 var child25_2 = new Parents부모25_2();
-// console.log(child25_2)
+console.log(child25_2)
 
 /* 6) constructor안에 파라미터 추가하기*/
 
@@ -1705,4 +1705,4 @@ class Parents부모25_3{
 }
 
 var child25_3 = new Parents부모25_3('Park', 30);
-// console.log(child25_3)
+console.log(child25_3)
