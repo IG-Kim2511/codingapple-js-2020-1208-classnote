@@ -1647,10 +1647,62 @@ var 자식 = Object.create(부모);
 자식.age  = 20;
 
 var 손자 = Object.create(자식); //4)
-
-console.log(손자.age);
+// console.log(손자.age);
 
 
 // 🦄🦄c25 객체지향4. class (ES6 상속기능)
+/*
+2) class 키워드로 구현하는 constructor 기계만들기
 
+-1. class 이름 대문자로 시작
 
+-2. class (){} 틀림 (강의에서 이렇게해서...에러남) 
+👉 class {}
+
+-3.  new 키워드 변수화...소문자로 해도 됨 
+*/
+
+class Parents부모25{  //-1) -2)
+  constructor(){
+    this.name = 'Kim';
+  }
+}
+
+var child자식25 = new Parents부모25();  // -3)
+// console.log(child자식25)
+
+/* 
+4) 함수를 추가
+constructor(){}의
+
+-1) 안에 추가: 자식child에 inheritance됨
+
+-2) 밖에 추가: 부모parents에 prototype됨
+*/
+class Parents부모25_2{
+  constructor(){
+    this.name = 'Kim';
+    this.sayHi = function(){ console.log('hello') }   //4-1)
+  }
+  sayHi2(){ 
+    console.log('hello2')   //4-2)
+  }
+  sayHi3(){ 
+    console.log('hello3')   //4-3. 여러개 추가 ㅇ)
+  }
+}
+
+var child25_2 = new Parents부모25_2();
+// console.log(child25_2)
+
+/* 6) constructor안에 파라미터 추가하기*/
+
+class Parents부모25_3{
+  constructor(이름, 나이){
+    this.name = 이름;
+    this.age = 나이;
+  }
+}
+
+var child25_3 = new Parents부모25_3('Park', 30);
+// console.log(child25_3)
