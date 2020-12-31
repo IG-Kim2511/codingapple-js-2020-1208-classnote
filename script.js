@@ -1779,3 +1779,146 @@ class 아버지2 extends 할아버지2{
 
 var var아버지 = new 아버지2('아버지손오공','여자');   //4) 파라미터 
 console.log(var아버지);
+
+
+/* 🦄🦄c27 getter, setter 대체 왜 쓰는지 알아보기 */
+
+/* 
+🍉2) 기본 오브젝트 문법 - 직접.. object 데이터 수정 */
+
+var 사람 = {
+  name : 'Kim',
+  age : 30,
+}
+console.log(사람.age + 1) //
+
+
+/*  
+2-2) 함수이용...object 데이터 수정 
+
+데이터를 수정하거나 출력할 때 직접 원본 데이터를 만지는게 아니라, 함수로 간접적으로 다루는게 대세
+
+👉이유: 
+복잡한 데이터 수정하기 쉽고, 
+수정전에 미리 검사 알고리즘 추가, (실수했을때 에러내거나, 수정해주는..)
+관리 편함
+*/
+
+var 사람2 = {
+  name : 'Kim',
+  age : 40,
+  nextAge(){
+    return this.age + 1 // 함수로 간접적으로 만듬
+  }
+}
+사람2.nextAge() ; //이렇게 사용하면 내년 나이가 출력되겠죠? 31이라고 출력되겠네요. 
+console.log(사람2.nextAge()); 
+
+/* 
+2-4)
+- 수정전에 미리 검사 알고리즘 추가 (실수했을때 에러내거나, 수정해주는..)
+
+parseInt()라는 함수는 ’40’같은 문자를 숫자 40으로 바꿔주는 자바스크립트 내장함수
+
+*/
+var 사람3 = {
+  name : 'Kim',
+  age : 30,
+  setAge(나이){ //
+     this.age = parseInt(나이);   // 2-4)  
+  }
+}
+
+사람3.setAge('200'); //문자 넣었는데도 숫자 200으로 저장됨
+console.log(사람3.setAge()) //(undefined뜸...원래 수업에서는 200나와야하는데... 뭔가 실수가 있는듯)
+
+
+/*
+🍉4)  get/set 키워드 
+오브젝트 내의 함수들을 괄호없이 쓸 수 있게 만들어주는 키워드. 보기쉬움
+
+
+
+get/set 사용하는 기준은  
+
+그냥 들은 get 쓰시면 되고
+
+해주는, set 해주는 함수들은 set 쓰시면 됩니다. 
+
+
+*/
+
+/* 🍉6) setter (데이터를 set 입력, 수정 해주는 함수)
+
+set 붙은 함수들은 setter라고 부릅니다. 
+
+-1) 함수 왼쪽에 set이라는 키워드를 추가 , 파라미터가 한개 꼭 존재해야
+
+-2)  소괄호 없앰, =등호로 표시
+*/
+
+var 사람4 = {
+  name : 'Kim',
+  age : 30,
+  set setAge(나이){   // 6-1)
+    this.age = parseInt(나이)
+  }
+}
+
+사람4.setAge = 40; // 6-2) 소괄호 없앰 (원래코딩 : 사람4.setAge (40);)
+console.log(사람4.setAge)  //(undefined뜸...원래 수업에서는 40 나와야하는데... 뭔가 실수가 있는듯)
+
+
+/*🍉 8) getter(데이터를 get 가져와주는함수)
+
+get 붙은 함수들은 getter라고 부릅니다. 
+
+-1) 함수 왼쪽에 get 이라는 키워드를 추가 ,  함수 내에 return을 가져야
+
+-2)  소괄호 없앰
+*/
+
+var 사람5 = {
+  name : 'Kim',
+  age : 300,
+  get nextAge(){    //8-1)
+    return  this.age + 1  
+  }
+}
+사람5.nextAge;  //8-2)
+console.log( 사람5.nextAge ) //get 키워드를 추가하면 이렇게 함수를 사용가능
+
+
+/* 
+🍉 10) class에서 사용하는 get/set
+class 안에서 함수 만들 때 get/set 키워드를 이용해서 getter/setter 식으로 함수를 만들 수 있습니다. 
+
+class 안의 함수들을 getter/setter로 만들어 쓰고 싶으면 이렇게 하시면 됩니다. 
+
+이제 새로 뽑인 object인 사람1은 
+
+사람9.nextAge;
+
+사람9.setAge = 50;
+
+이렇게 사용하실 수 있겠군요.
+
+ */
+
+class 사람8 {
+  constructor(){
+    this.name = 'Park';
+    this.age = 20;
+  }
+  get nextAge(){
+    return this.age + 1
+  }
+  set setAge(나이){
+    this.age = 나이;
+  }
+}
+
+var 사람9 = new 사람8();
+
+console.log(사람9.nextAge)
+console.log(사람9.setAge = 50);
