@@ -1706,3 +1706,76 @@ class Parents부모25_3{
 
 var child25_3 = new Parents부모25_3('Park', 30);
 console.log(child25_3)
+
+
+// 🦄🦄c26 객체지향5. class... extends / super(파라미터);
+
+/* 
+2) extends / super(파라미터);
+
+extends: 확대하다, 연장하다
+extends & 상속 
+할아버지라는 class를 그대로 복붙한 아버지라는 class가 생성됩니다. 
+
+2-2) (extends)
+2-4) (추가)
+*/
+class 할아버지{
+  constructor(name){
+    this.성 = 'Kim';    //2-2)
+    this.이름 = name;   //2-2)
+  }
+}
+class 아버지 extends 할아버지{  //2)
+  constructor(){
+    super();    //  2-2) extends & 상속 한 내용
+    this.나이 = 50;   // 2-4) 추가한 내용
+  }
+}
+var a = new 아버지();
+console.log(a);
+
+/* 
+3) 파라미터 추가
+
+4) 파라미터 상속
+
+5) 이전시간 class복습
+
+-1. constructor 안에서 쓰면 constructor
+
+-2.  constructor 밖(prototype 함수 안)에서 쓰면 prototype
+
+6) prototype 상속
+
+-1. constructor 안에서 쓰면 부모 class의 constructor 상속
+
+-2.  constructor 밖(prototype 함수 안)에서 쓰면 부모 class의 prototype 상속
+ */
+
+class 할아버지2{
+  constructor(parm1,parm2){     //3) 파라미터 추가
+    this.성 = 'Kim';
+    this.이름 = parm1;     //3) 파라미터 추가
+    this.gender = parm2;
+  }
+  sayHi(){                    // 5-2) prototype 
+    console.log('안녕 나는 할아버지2')    
+  }
+}
+
+var var할아버지= new 할아버지2('할아버지손오공','남자'); //3) 파라미터 추가
+console.log(var할아버지)
+class 아버지2 extends 할아버지2{
+  constructor(parm1,parm2){     //4) 파라미터 상속
+    super(parm1,parm2);     //4) 파라미터 상속
+    this.나이 = 50;
+  }
+  sayHi2(){
+    console.log('안녕 나는 아버지');     
+    super.sayHi();     // 6-2) prototype 상속
+  }
+}
+
+var var아버지 = new 아버지2('아버지손오공','여자');   //4) 파라미터 
+console.log(var아버지);
