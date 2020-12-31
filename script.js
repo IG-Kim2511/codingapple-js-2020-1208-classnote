@@ -1781,7 +1781,7 @@ var var아버지 = new 아버지2('아버지손오공','여자');   //4) 파라�
 console.log(var아버지);
 
 
-/* 🦄🦄c27 getter, setter 대체 왜 쓰는지 알아보기 */
+/*🦄🦄c27 함수이용...object 데이터 수정하기, getter, setter  */
 
 /* 
 🍉2) 기본 오브젝트 문법 - 직접.. object 데이터 수정 */
@@ -1908,38 +1908,27 @@ var 사람7 = new 사람6();  //
 console.log(사람7.nextAge()); //
 
 
-
 /* 
-🍉10) class에서 사용하는 get/set
+🍉10) class 안의 함수에서도 getter/setter 사용가능함
 
-class 안에서 함수 만들 때 get/set 키워드를 이용해서 getter/setter 식으로 함수를 만들 수 있습니다. 
+-2) prototype함수들에도 get/set가능함
 
-
-이제 새로 뽑인 object인 사람1은 
-
-사람9.nextAge;
-
-사람9.setAge = 50;
-
-이렇게 사용하실 수 있겠군요.
-
+-3) '나이'를 새로 setting하는 setter
  */
-
-
 class 사람8 {
   constructor(){
     this.name = 'Park';
-    this.age = 20;
+    this.age = 80;
   }
-  get nextAge(){
+  get nextAge(){    // 10-2)
     return this.age + 1
   }
-  set setAge(나이){
+  set setAge(나이){   //-3)
     this.age = 나이;
   }
 }
 
 var 사람9 = new 사람8();
 
-console.log(사람9.nextAge)
-console.log(사람9.setAge = 50);
+console.log(사람9.nextAge)  // 10-2)
+console.log(사람9.setAge = 8000);  //-3)
