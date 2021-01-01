@@ -1956,3 +1956,93 @@ function 쓰고 나서 그 자리에 뭔가 값을 뾰롱 남기고 싶으면 re
 
 그런 경우에 필요할 때 꺼내쓰는 문법이지 항상 써야되는건 아니기 때문에 그냥 그런게 있구나 하고 대충 넘어가셔도 됩니다. 
  */
+
+
+//🦄🦄c28-2 class, extends, getter, setter 연습문제 답안
+
+/* 
+🍉1) class 구조 만들어보기
+
+var 강아지1 = { type : '말티즈', color : 'white' };
+var 강아지2 = { type : '진돗개', color : 'brown' }; 
+*/
+class Dog {
+  constructor(타입, 칼라){
+    this.type = 타입;
+    this.color = 칼라;
+  }
+}
+var 강아지1 = new Dog('똥개', 'black');
+var 강아지2 = new Dog('진돗개', 'brown');
+
+
+/* 
+🍉2) 고양이관련 object들을 만들고 싶습니다. 
+ 
+-2) 이전에 만든 강아지 object와 비슷 (extends 문법을 사용)
+
+-3) 고양이들만 특별하게 age라는 속성을 하나 더 추가. 
+
+var 고양이1 = { type : '코숏', color : 'white', age : 5 };
+var 고양이2 = { type : '러시안블루', color : 'brown', age : 2 }; 
+*/
+
+class Dog2 {
+  constructor(타입, 칼라){
+    this.type = 타입;
+    this.color = 칼라;
+  }
+}
+class Cat extends Dog2 {    //2-2)
+  constructor(타입, 칼라, 나이){
+    super(타입, 칼라);
+    this.age = 나이;  //2-3)
+  }
+}
+
+var 고양이1 = new Cat('동네고양이', 'white', 5);
+
+
+/* 
+🍉3) 고양이와 강아지 object들에 기능을 하나 추가하고 싶습니다. 
+
+한살먹기 함수 : 현재 가지고있는 age 속성에 1을 더해주는 기능을 실행해야
+
+
+ */
+
+class Dog3 {
+  constructor(타입, 칼라){
+    this.type = 타입;
+    this.color = 칼라;
+  }
+  한살먹기(){
+    if( this instanceof Cat) {
+    this.age++
+    }
+  }
+}
+
+class Cat3 extends Dog3 {
+  constructor(타입, 칼라, 나이){
+    super(타입, 칼라);
+    this.age = 나이;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
