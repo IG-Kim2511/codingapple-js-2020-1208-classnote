@@ -2169,7 +2169,7 @@ var data28_2 = {
   even : []
 }
 
-(2) data28_2 오브젝트에는 getter 역할 함수가 하나 필요합니다.
+퀘스트: data28_2 오브젝트에는 getter 역할 함수가 하나 필요합니다.
 
 getter 함수를 사용하면 odd, even에 저장된 모든 데이터들이 숫자순으로 정렬되어 출력되어야합니다. 
 
@@ -2186,16 +2186,20 @@ data28_2 =
 
 
 /* 
-(2) 
+2) array 두개를 합치려면 어떻게 합니까.
+… 기호로 spread operator 문법을 이용하시면 this.odd 그리고 this.even이라는 array 두개를 쉽게 합칠 수 있습니다. 
 
+그리고 그걸 출력해주는 getter함수를 만들었구염. 
+
+3) 출력하기 전에 정렬하고 싶으면 .sort()만 뒤에 붙이시면 됩니다. 
 
  */
 
 var data28_2 = {
   odd : [1,3],
   even : [2,4,6],
-  get getter함수(){
-    return [...this.odd, ...this.even ].sort()
+  get getter함수(){         //2)
+    return [...this.odd, ...this.even ].sort()    //3)
   }
 };
 
