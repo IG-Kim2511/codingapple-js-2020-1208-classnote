@@ -2207,6 +2207,7 @@ console.log(data28_2.getter함수);
 
 
 
+// 🦄🦄c29 Destructuring 문법-variable, array, object, function
 
 
 
