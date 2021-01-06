@@ -2458,61 +2458,88 @@ ex)
 });
  */
 
-//  🦄🦄c32 ES6 Promise, .then, .catch
-console.log('🦄c32 ES6 Promise')
+//  🦄🦄c32 (ES6) Promise, .then, .catch
+console.log('🦄c32 (ES6) Promise')
 
 /* 2)
- 자바스크립트의 새로운 기능이라기보다는 코드/함수 디자인 패턴일 뿐입니다.
-  */
+자바스크립트의 새로운 기능이라기보다는,  코드/함수 디자인 패턴일 뿐입니다.
 
- var 프로미스 = new Promise(function(성공, 실패){
-  var 어려운연산 = 1 + 1;
-  성공();
+Promise가 콜백함수보다 좋은 이유
+
+1. 콜백함수와는 다르게 순차적으로 뭔가를 실행할 때 코드가 옆으로 길어지지 않습니다. then 함수를 붙여서 순차적으로 실행하니까요.
+
+2. 콜백함수는 불가능한 ‘실패시 특정 코드를 실행해주세요~’ 라고 코드를 짤 수 있습니다. (catch)
+
+*/
+
+/* 4)
+-2) new Promise() 문법으로 프로미스라는 변수 오브젝트를 하나 생성하시면 Promise 제작 끝입니다. 
+
+-3) resolve,reject : 실행완료, 실패 의미함.. 관습적으로 작명
+
+-4) 프로미스 안의 코드 실행이 완료(resolve)가 되었을 때, then() 함수 내의 코드를 실행시켜줍니다. 
+
+-6) 프로미스 안의 코드 실행이 실패(reject)했을 경우엔, catch() 함수 내의 코드를 실행시켜줍니다. 
+
+-8) 이제 프로미스 내의 1+1 이라는 어려운 수학연산이 완료되면 실행완료() 판정을 내리며, 
+-9) resolve 실행완료시 then() 내의 코드를 실행해줍니다. 
+*/
+
+
+var 프로미스 = new Promise(function(resolve,reject ){  //4-2) -3)
+var 어려운연산 = 1 + 1;   //-8)
+resolve()});           //-4)  -8)
+
+프로미스
+.then(function(){         //-4) -9)
+  console.log('연산이 resolve 했습니다')
+})
+.catch(function(){           //-6)
+  console.log('실패했습니다')
 });
 
-프로미스.then(function(){
-  console.log('연산이 성공했습니다')
-}).catch(function(){
 
-});
+// 6) reject()라는 함수를 실행하는 순간 reject실패판정을 내립니다. 
 
-// 
-var 프로미스2 = new Promise(function(성공, 실패){
+var 프로미스2 = new Promise(function(resolve, reject){
   var 어려운연산 = 1 + 1;
-  실패();
+  reject();   //6)
 });
 
 프로미스2.then(function(){
-  console.log('연산이 성공했습니다2')
+  console.log('연산이 resolve했습니다2')
 }).catch(function(){
-  console.log('실패했습니다2')
+  console.log('reject 했습니다2')   //6)
 });
 
 
-// 
-var 프로미스3 = new Promise(function(성공, 실패){
-  var 어려운연산 = 1 + 1;
-  성공(어려운연산);
+/* 8) 연산결과를 then 안에서 활용하고 싶으면, resolve(); 함수 parameter안에 넣어주시면 됩니다.
+
+8-2) 그럼 then 함수 안에서, 파라미터의 형태로 그 결과를 사용하실 수 있습니다.  */
+
+var 프로미스3 = new Promise(function(resolve실행완료, reject거부){
+  var 어려운연산 = 111 + 111;    //8)
+  resolve실행완료(어려운연산);    //8)
 });
 
-프로미스3.then(function(결과){
-  console.log('연산이 성공했습니다3' + 결과)
+프로미스3.then(function(parameter){       //8-2)
+  console.log('연산이 resolve실행완료 했습니다3' + parameter)       //8-2)
 }).catch(function(){
-  console.log('실패했습니다3')
+  console.log('reject거부 했습니다3')
 });
 
 
 //
- var 프로미스4 = new Promise(function(성공, 실패){
+ var 프로미스4 = new Promise(function(resolve실행완료, reject거부){
   setTimeout(function(){
-    성공();
+    resolve실행완료();
   }, 1000);
 });
 
 프로미스4.then(function(){
-  console.log('c32. 1초 대기 성공했습니다')
+  console.log('c32. 1초 대기 resolve실행완료 했습니다')
 }).catch(function(){
-  console.log('실패했습니다')
+  console.log('reject거부 했습니다')
 });
 
 
