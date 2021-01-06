@@ -2374,13 +2374,14 @@ let {
 } = 신체정보;
 
 
-//  🦄🦄c30 type="module", export default, {.}, import { ~ as 작명}, {* as 작명}
+//🦄🦄c30 export default, {.}, import { ~ as 작명}, { as 작명}, type=module
 /* 
 👉html
 👉library.js
 */
 
 
+//🦄🦄c31 Synchronous/ asynchronous / web API / callback function (동기,비동기,콜백함수)
 
 
 
