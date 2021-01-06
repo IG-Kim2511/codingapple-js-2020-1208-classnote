@@ -2458,9 +2458,62 @@ ex)
 });
  */
 
+//  🦄🦄c32 ES6 Promise, .then, .catch
+console.log('🦄c32 ES6 Promise')
+
+/* 2)
+ 자바스크립트의 새로운 기능이라기보다는 코드/함수 디자인 패턴일 뿐입니다.
+  */
+
+ var 프로미스 = new Promise(function(성공, 실패){
+  var 어려운연산 = 1 + 1;
+  성공();
+});
+
+프로미스.then(function(){
+  console.log('연산이 성공했습니다')
+}).catch(function(){
+
+});
+
+// 
+var 프로미스2 = new Promise(function(성공, 실패){
+  var 어려운연산 = 1 + 1;
+  실패();
+});
+
+프로미스2.then(function(){
+  console.log('연산이 성공했습니다2')
+}).catch(function(){
+  console.log('실패했습니다2')
+});
 
 
+// 
+var 프로미스3 = new Promise(function(성공, 실패){
+  var 어려운연산 = 1 + 1;
+  성공(어려운연산);
+});
 
+프로미스3.then(function(결과){
+  console.log('연산이 성공했습니다3' + 결과)
+}).catch(function(){
+  console.log('실패했습니다3')
+});
+
+
+//
+ var 프로미스4 = new Promise(function(성공, 실패){
+  setTimeout(function(){
+    성공();
+  }, 1000);
+});
+
+프로미스4.then(function(){
+  console.log('c32. 1초 대기 성공했습니다')
+}).catch(function(){
+  console.log('실패했습니다')
+});
 
 
 
