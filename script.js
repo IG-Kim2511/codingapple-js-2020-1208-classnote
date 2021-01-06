@@ -2475,7 +2475,7 @@ Promise가 콜백함수보다 좋은 이유
 /* 4)
 -2) new Promise() 문법으로 프로미스라는 변수 오브젝트를 하나 생성하시면 Promise 제작 끝입니다. 
 
--3) resolve,reject : 실행완료, 실패 의미함.. 관습적으로 작명
+-3) 파라미터 resolve,reject : 실행완료, 실패 의미함.. 관습적으로 작명
 
 -4) 프로미스 안의 코드 실행이 완료(resolve)가 되었을 때, then() 함수 내의 코드를 실행시켜줍니다. 
 
@@ -2529,14 +2529,15 @@ var 프로미스3 = new Promise(function(resolve실행완료, reject거부){
 });
 
 
-//
+// 10) 1초 대기 성공 후에 특정 코드를 실행하려면?
+
  var 프로미스4 = new Promise(function(resolve실행완료, reject거부){
-  setTimeout(function(){
+  setTimeout(function(){    //10)
     resolve실행완료();
   }, 1000);
 });
 
-프로미스4.then(function(){
+프로미스4.then(function(){    //10)
   console.log('c32. 1초 대기 resolve실행완료 했습니다')
 }).catch(function(){
   console.log('reject거부 했습니다')
