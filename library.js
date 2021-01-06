@@ -1,6 +1,7 @@
 
 
 //  🦄🦄c30 export default, {.}, import { ~ as 작명}, { as 작명}, type=module
+console.log('🦄c30')
 
 /* 
 그리고 import/export는 당연 IE 호환성이 없기 때문에
