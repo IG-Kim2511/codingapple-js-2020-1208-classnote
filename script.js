@@ -2553,22 +2553,21 @@ console.log('🦄c33')
 (참고) 이미지 로딩이 끝났다는 것은 <img>에 load라는 이벤트리스너를 붙여서 체크가 가능합니다. 
 
 (참고) 이미지 로딩이 실패했다는 것은 <img>에 error라는 이벤트리스너를 붙여서 체크가 가능합니다.
-
 */
 
-var 이미지로딩 = new Promise(function(성공, 실패){
-  var img = document.querySelector('test');
-  img.addEventListener('load', function(){
-      성공();
+var 이미지로딩 = new Promise(function(resolve, reject){
+  var img = document.querySelector('#test');
+  img.addEventListener('load', function(){    //
+      resolve();
   });
-  img.addEventListener('error', function(){
-      실패();
+  img.addEventListener('error', function(){   //
+      reject();       
   });  
 });
 
-이미지로딩.then(function(){
+이미지로딩.then(function(){   //
   console.log('성공했어요')
-}).catch(function(){
+}).catch(function(){          //
   console.log('실패했어요')
 })
 
@@ -2582,29 +2581,31 @@ https://codingapple1.github.io/hello.txt 라는 경로로 GET 요청을 하면 �
 
 Promise의 then 함수를 이용해서 Ajax로 받아온 인삿말을 콘솔창에 출력해주고 싶습니다.
 
- */
+-2) ajax완료되면 resolve, reject여부 알려주는 Promise
 
-var 프로미스 = new Promise(function(성공, 실패) {
-  $.get('https://codingapple1.github.io/hello.txt').done(function(결과){
-    성공(결과)
+-4) 파라미터...ajax데이터
+*/
+
+var 프로미스 = new Promise(function(resolve, reject) {        //-2)
+  $.get('https://codingapple1.github.io/hello.txt').done(function(ajax데이터){    //-4)
+    resolve(ajax데이터)
   });
 });
 
-프로미스.then(function(결과) {
-console.log(결과);
+프로미스.then(function(ajax데이터) {
+console.log(ajax데이터);
 })
 
 /* 6) Q3. Promise chaining  (promise .then 순차적으로 연속 실행하기)
 
-1. 첫프로미스가 성공하면 then() 안의 코드를 실행시켜줍니다. ('안녕하세요 반갑습니다요.')
+-1) 첫프로미스가 성공하면 then() 안의 코드를 실행시켜줍니다. ('안녕하세요 반갑습니다요.')
 
-2. 근데 거기 안에는 프로미스2가 있습니다. 프로미스2가 성공하면
+-2) 근데 거기 안에는 프로미스2가 있습니다. 프로미스2가 성공하면
 
-3. 뒤에 있는 then() 안의 코드를 실행시켜줍니다. ('두번째 인삿말입니다')
+-3) return
 
-
-
- */
+-4) 뒤에 있는 then() 안의 코드를 실행시켜줍니다. ('두번째 인삿말입니다')
+*/
 
 var 프로미스 = new Promise(function(성공, 실패) {
   $.get('https://codingapple1.github.io/hello.txt').done(function(결과){
@@ -2612,21 +2613,45 @@ var 프로미스 = new Promise(function(성공, 실패) {
   });
 });
 
-프로미스.then(function(결과) {
+프로미스.then(function(결과) {    //-1)
 console.log(결과);
 
-var 프로미스2 = new Promise(function(성공, 실패) {
+return new Promise(function(성공, 실패) {    //6-2) 두번째 Promise //6-3) return
   $.get('https://codingapple1.github.io/hello2.txt').done(function(결과){
     성공(결과)
   })
 });
 
-return 프로미스2;
-
-}).then(function(결과) {
+}).then(function(결과) {  //-4)
   console.log(결과);
 }) 
 
+
+/* 8) 중복함수 밖으로 빼기
+-2) 함수 선언
+-4) 함수 실행
+-6) 파라미터 활용   */
+
+var 프로미스 = ajax해주는함수('https://codingapple1.github.io/hello.txt'); //-4)
+
+프로미스.then(function(결과) {
+console.log(결과);
+
+return ajax해주는함수('https://codingapple1.github.io/hello2.txt'); //-4)
+
+
+}).then(function(결과) {  
+  console.log(결과);
+}) 
+
+function ajax해주는함수(parm){    //-2) -6)
+  return new Promise(function(성공, 실패) {   
+    $.get(parm).done(function(결과){
+      성공(결과)
+    })
+  });
+
+}
 
 
 
