@@ -16,6 +16,9 @@
       crossorigin="anonymous"
     ></script>
 
+    <!-- jQuery CDN 파일 -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
@@ -23,19 +26,23 @@
     <section class="c3">
       <p class="title">🦄c2 this 1: object안의... this</p>
       <p class="title">
-        🦄c3 this 2: eventListener안. constructor안. object안. arrow function안의 this
+        🦄c3 this 2: eventListener안. constructor안. object안. arrow
+        function안의 this
       </p>
       <p class="title">
         🦄c4 this3 : Arrow function의 this, arrow function쓰는 법
       </p>
 
-      <!-- js 3- 4)  --> eventListener안의... this
+      <!-- js 3- 4)  -->
+      eventListener안의... this
       <button id="버튼">버튼</button>
 
-        <!-- js 3- 4-2)  --> eventListener안의 function안의...  this : window
+      <!-- js 3- 4-2)  -->
+      eventListener안의 function안의... this : window
       <button id="버튼2">버튼2</button>
 
-        <!--js 4-8  -->  object안의 arrow function안의... this : window
+      <!--js 4-8  -->
+      object안의 arrow function안의... this : window
       <button id="버튼3">버튼3</button>
 
       eventListener + arrow function 안의... e.currentTarget
@@ -43,60 +50,101 @@
     </section>
 
     <section class="c5">
-      <p class="title"> 🦄c5 🦄c6 this & arrow function 연습문제 해설</p>
+      <p class="title">🦄c5 🦄c6 this & arrow function 연습문제 해설</p>
 
       <!-- 8) -->
       <button id="버튼1">this</button>
 
       <button id="버튼2">arrow function + this</button>
 
-      <button id="버튼3">일반function + this를 that(작명)으로 변수화 + 변수 활용</button>
+      <button id="버튼3">
+        일반function + this를 that(작명)으로 변수화 + 변수 활용
+      </button>
     </section>
 
     <section class="c7">
-      <p class="title">🦄c7 var let const와 assign,declare,scope (변수 신문법 총정리 1.)</p>
-      <p class="title">🦄c8 Hoisting, global variable(window variable), closure (변수 신문법 총정리 2.)</p>
-      <p class="title">🦄c9 c10 변수, temporal deadzone, uninitialized, eventlistener-for반복문-let(변수 연습문제 해설)</p>
+      <p class="title">
+        🦄c7 var let const와 assign,declare,scope (변수 신문법 총정리 1.)
+      </p>
+      <p class="title">
+        🦄c8 Hoisting, global variable(window variable), closure (변수 신문법
+        총정리 2.)
+      </p>
+      <p class="title">
+        🦄c9 c10 변수, temporal deadzone, uninitialized,
+        eventlistener-for반복문-let(변수 연습문제 해설)
+      </p>
       <p class="title">🦄c11 Template literals(backquote). Tagged literal</p>
-      <p class="title">🦄c12 Template literals / tagged literals 연습문제해설</p>
-      <p class="title">🦄c13 Spread Operator1: reference data type.  Deep copy</p>
-      <p class="title">🦄c14 Spread Operator2: array를 함수안의 parameter로 넣기, apply, call 함수</p>
-      <p class="title">🦄c15 default parameter/ arguments (함수 능력 업그레이드)</p>
+      <p class="title">
+        🦄c12 Template literals / tagged literals 연습문제해설
+      </p>
+      <p class="title">
+        🦄c13 Spread Operator1: reference data type. Deep copy
+      </p>
+      <p class="title">
+        🦄c14 Spread Operator2: array를 함수안의 parameter로 넣기, apply, call
+        함수
+      </p>
+      <p class="title">
+        🦄c15 default parameter/ arguments (함수 능력 업그레이드)
+      </p>
       <p class="title">🦄🦄c16 함수의 Rest 파라미터</p>
-      <p class="title">🦄🦄c17 18 Spread operator, ...rest 연습문제 답 .Math.max(.) .sort(.) .join(.)</p>
-      <p class="title">🦄🦄c19 Reference data type: array, object (Primitive data type : string, number)</p>
-      
+      <p class="title">
+        🦄🦄c17 18 Spread operator, ...rest 연습문제 답 .Math.max(.) .sort(.)
+        .join(.)
+      </p>
+      <p class="title">
+        🦄🦄c19 Reference data type: array, object (Primitive data type :
+        string, number)
+      </p>
+
       <p class="title">🦄🦄c20-0 1분코딩 object정리</p>
       <p class="title">🦄🦄c20 객체지향1. constructor (Object 생성기계)</p>
 
-      <p class="title">🦄🦄c21 객체지향2. prototype과 constructor. Array의 prototype (prototype: 2009년이전문법, ES4)</p>
+      <p class="title">
+        🦄🦄c21 객체지향2. prototype과 constructor. Array의 prototype
+        (prototype: 2009년이전문법, ES4)
+      </p>
       <p class="title">🦄🦄c22 객체지향3. prototype, __proto__</p>
-      <p class="title">🦄🦄c23 constructor, prototype 연습문제, 나만의 내장함수 라이브러리 만들기</p>
+      <p class="title">
+        🦄🦄c23 constructor, prototype 연습문제, 나만의 내장함수 라이브러리
+        만들기
+      </p>
       <p class="title">🦄🦄c24 Object.create(.); (ES5 상속기능)</p>
       <p class="title">🦄🦄c25 객체지향4. class (ES6 상속기능)</p>
-      <p class="title">🦄🦄c26 객체지향5. class... extends / super(파라미터);</p>
-      <p class="title">🦄🦄c27 함수이용...object 데이터 수정하기, getter, setter </p>
-      <p class="title">🦄🦄c28-2 class, extends, getter, setter 연습문제 답안</p>
-      <p class="title">🦄🦄c29 Destructuring 문법-variable, array, object, function</p>      
+      <p class="title">
+        🦄🦄c26 객체지향5. class... extends / super(파라미터);
+      </p>
+      <p class="title">
+        🦄🦄c27 함수이용...object 데이터 수정하기, getter, setter
+      </p>
+      <p class="title">
+        🦄🦄c28-2 class, extends, getter, setter 연습문제 답안
+      </p>
+      <p class="title">
+        🦄🦄c29 Destructuring 문법-variable, array, object, function
+      </p>
     </section>
     <section class="c30">
-      <p class="title"> 🦄🦄c30 export default, {.}, import { ~ as 작명}, { as 작명}, type=module</p>
+      <p class="title">
+        🦄🦄c30 export default, {.}, import { ~ as 작명}, { as 작명},
+        type=module
+      </p>
 
       <!--  ES6 import 문법을 쓰시려면 저렇게 script 태그 안에 type을 module로 설정해주셔야합니다.  -->
       <script type="module">
-        console.log('c30')
+        console.log("c30");
 
         // 2) 작명 가능
-        import 작명 from '/library.js';
+        import 작명 from "/library.js";
         console.log(작명);
 
-        // 4) { } 형식, 작명 x(변수 이름 똑같이), 
+        // 4) { } 형식, 작명 x(변수 이름 똑같이),
         // 5) export default변수는 왼쪽에 배치
         // 6) { }형식에도 작명하기. {변수 as 작명}
 
-        import 작명5, {a,b, d as 작명6} from '/library.js';
-        console.log(a)
-
+        import 작명5, { a, b, d as 작명6 } from "/library.js";
+        console.log(a);
 
         // 9) export { }형식의 모든 변수 가져오기
         /* 
@@ -104,27 +152,36 @@
         -4) as 로 꼭 작명을  해야 함
         -6)export default 된 변수(ex.작명8)는 따로 왼쪽에 넣음
         */
-        import 작명8, * as 작명9 from '/library.js';
-   
+        import 작명8, * as 작명9 from "/library.js";
 
         // Module 오브젝트에 모두 오브젝트형식으로  들어가있음
-        console.log(작명9)
+        console.log(작명9);
 
         // 오브젝트 호출형식으로 변수 사용함
-        console.log(작명9.d)
+        console.log(작명9.d);
 
         // export default 된 변수
-        console.log(작명8)
+        console.log(작명8);
 
         /* 11)
         var 가져온거 = require('/library.js'); 
-        */ 
-      </script>      
+        */
+      </script>
     </section>
     <section class="c31">
-      <p class="title">🦄🦄c31 Synchronous/ asynchronous / web API / callback function (동기,비동기,콜백함수)</p>
-      
+      <p class="title">
+        🦄🦄c31 Synchronous/ asynchronous / web API / callback function
+        (동기,비동기,콜백함수)
+      </p>
+
       <p class="title">🦄🦄c32 (ES6) Promise, .then, .catch</p>
+
+      <p class="title">
+        🦄🦄c33 Promise 연습문제 & 해설, 로딩하기, ajax요청하기, Promise
+        chaining
+      </p>
+      <!-- 2) -->
+      <img id="test" src="https://codingapple1.github.io/kona.jpg"> 
 
     </section>
   </body>

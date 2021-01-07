@@ -2544,9 +2544,88 @@ var 프로미스3 = new Promise(function(resolve실행완료, reject거부){
 });
 
 
+// 🦄🦄c33 Promise 연습문제 & 해설, 로딩하기, ajax요청하기, Promise chaining 
+console.log('🦄c33')
+
+/* 
+2) <img> 이미지 로딩 성공시 특정 코드를 실행하고 싶습니다. (👉html)
+
+(참고) 이미지 로딩이 끝났다는 것은 <img>에 load라는 이벤트리스너를 붙여서 체크가 가능합니다. 
+
+(참고) 이미지 로딩이 실패했다는 것은 <img>에 error라는 이벤트리스너를 붙여서 체크가 가능합니다.
+
+*/
+
+var 이미지로딩 = new Promise(function(성공, 실패){
+  var img = document.querySelector('test');
+  img.addEventListener('load', function(){
+      성공();
+  });
+  img.addEventListener('error', function(){
+      실패();
+  });  
+});
+
+이미지로딩.then(function(){
+  console.log('성공했어요')
+}).catch(function(){
+  console.log('실패했어요')
+})
+
+/* 
+4) Q2. Ajax 요청이 성공하면 무언가 코드를 실행하고 싶습니다. 
+
+https://codingapple1.github.io/hello.txt 라는 경로로 GET 요청을 하면 인삿말이 하나 딸려옵니다. 
+('안녕하세요 반갑습니다요.')
+
+여기로 GET 요청을 해서 성공하면
+
+Promise의 then 함수를 이용해서 Ajax로 받아온 인삿말을 콘솔창에 출력해주고 싶습니다.
+
+ */
+
+var 프로미스 = new Promise(function(성공, 실패) {
+  $.get('https://codingapple1.github.io/hello.txt').done(function(결과){
+    성공(결과)
+  });
+});
+
+프로미스.then(function(결과) {
+console.log(결과);
+})
+
+/* 6) Q3. Promise chaining  (promise .then 순차적으로 연속 실행하기)
+
+1. 첫프로미스가 성공하면 then() 안의 코드를 실행시켜줍니다. ('안녕하세요 반갑습니다요.')
+
+2. 근데 거기 안에는 프로미스2가 있습니다. 프로미스2가 성공하면
+
+3. 뒤에 있는 then() 안의 코드를 실행시켜줍니다. ('두번째 인삿말입니다')
 
 
 
+ */
+
+var 프로미스 = new Promise(function(성공, 실패) {
+  $.get('https://codingapple1.github.io/hello.txt').done(function(결과){
+    성공(결과)
+  });
+});
+
+프로미스.then(function(결과) {
+console.log(결과);
+
+var 프로미스2 = new Promise(function(성공, 실패) {
+  $.get('https://codingapple1.github.io/hello2.txt').done(function(결과){
+    성공(결과)
+  })
+});
+
+return 프로미스2;
+
+}).then(function(결과) {
+  console.log(결과);
+}) 
 
 
 
