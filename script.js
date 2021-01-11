@@ -2718,8 +2718,8 @@ async function 더하기34_3(){
 */
 async function 더하기34_4(){
   var 어려운연산 = new Promise((성공, 실패)=>{
-    var 결과 = 1 + 1;
-    성공(결과);     //
+    var 연산결과 = 11111 + 11111;
+    성공(연산결과);     //
   });
   var 결과 = await 어려운연산;    //
   console.log(결과);
@@ -2736,8 +2736,6 @@ try catch라는 자바스크립트 문법인데,
 try {} 안의 코드가 에러가 나고 멈출 경우, 대신 catch {} 내부의 코드를 실행해줍니다. 
 */
 
-
-
 async function 더하기34_5(){
   var 어려운연산 = new Promise((성공, 실패)=>{
     실패();
@@ -2747,8 +2745,22 @@ async function 더하기34_5(){
   catch { console.log(' 어려운연산 Promise가 실패할 경우 실행할 코드') }
 }
 
+/* 10) (test34버튼) 클릭하면, resolve실행완료 하는 Promise 만들기
 
+ */
+async function 버튼누르기34(){
 
+  var 프로미스 = new Promise((resolve실행완료,reject거부)=>{
+    document.querySelector('#test34').addEventListener('click',()=>{
+      resolve실행완료();
+    });
+  });
+
+  var 결과 = await 프로미스;
+  console.log('c34 test34')
+}
+
+버튼누르기34();
 
 
 
