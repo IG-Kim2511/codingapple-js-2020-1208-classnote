@@ -2762,5 +2762,91 @@ async function 버튼누르기34(){
 
 버튼누르기34();
 
+// 🦄🦄c35 for in / for of 반복문과 enumerable, iterable 속성
+console.log('🦄c35')
+/* 
+1) 반복문의 용도
 
+1. 코드 단순 반복
+2. 자료형에 담긴 자료들을 하나씩 꺼내고 싶을 때  */
 
+/*  2) 반복문들 총정리
+-1) 그냥 for 반복문
+
+for (var i = 0; i<3; i++){ }
+
+-2)array전용
+
+[1,2,3].forEach(()=>{console.log(this)});
+
+-3) object전용
+
+for(var key in 오브젝트){}
+
+-4) array, 문자, arguments, NodeList, Map, Set 이라는 자료형 (iterable) 전용
+
+for (var key of 오브젝트){}
+*/
+
+/* 4) for in 반복문은 Object에 사용합니다. 
+Object 자료형에 저장된 자료들을 하나씩 꺼내고 싶을 때 사용합니다. 
+
+-2) 반복문은 오브젝트라는 자료 내부 데이터 갯수만큼 반복하게 되며
+
+반복할 때마다 key라는 변수는 name, age 이렇게 데이터의 key값이 됩니다. 
+(key라는건 변수명입니다. 여러분이 마음대로 작명하시면 됩니다.)
+
+-4) 오브젝트.key를 콘솔창에 출력하면 되는데, 변수명을 저렇게 쩜찍고 쓸 수는 없으니
+
+오브젝트[key] 라고 사용하시면 됩니다. 
+*/
+
+var 오브젝트35 = { name : 'Kim', age : 30 };
+
+for (var key작명 in 오브젝트35) {   //4-2)
+  console.log(오브젝트35[key작명]);   //4-4)
+}
+
+/* 6) for in 반복문의 특징 
+1. enumerable한 것만 출력해줍니다
+
+2. 부모의 prototype에 저장된 것도 출력해줍니다.
+
+3. prototype제외하고 출력하기 : 
+
+오브젝트.hasOwnProperty()라는 함수는
+
+오브젝트가 이 key값을 직접 가지고 있냐라고 물어보는 함수입니다. 
+
+갖고 있으면 true, 없으면 false를 뱉어줍니다. 
+
+그래서 내가 가진 것만 반복시키고 싶으면 이걸 꼭 쓰셔야합니다. 
+*/
+
+class 부모35 {
+ 
+}
+부모35.prototype.name = 'Park';   //prototype
+
+var 오브젝트35_3 = new 부모35();
+
+for (var key in 오브젝트35_3) {
+  if (오브젝트35_3.hasOwnProperty(key)) {     //6-3)
+    console.log(오브젝트35_3[key]);
+  }
+}
+
+/* 8) for of 반복문 
+
+array, 문자, arguments, NodeList, Map, Set 자료형에 적용할 수 있는 반복문입니다. 
+
+-2) NodeList
+ .getElementsByClassName()이나 
+ .querySelectorAll() 이런 셀렉터로 찾은 요소들이
+[] 대괄호안에 담겨오는데 array는 아니고 NodeList라는 자료형이라고 부릅니다. 
+*/
+
+var 어레이 = [2,3,4,5];
+for (var 자료 of 어레이) {
+  console.log(자료);
+}
