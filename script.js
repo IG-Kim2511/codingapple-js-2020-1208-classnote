@@ -2669,6 +2669,8 @@ var 프로미스34 = new Promise(function(resolve실행완료,reject거부){    
 /* 4) async
 async, await이라는 키워드인데 각각 Promise와 then을 매우 쉽게 만들어주는 문법입니다. 
 
+단점 : promise의 resolve성공만 가능
+
 -2)
 async 키워드를 쓰면 Promise 오브젝트가 절로 생성됩니다. 
 그럼 이 함수 자체가 Promise가 되어버립니다. 
@@ -2719,18 +2721,29 @@ async function 더하기34_4(){
     var 결과 = 1 + 1;
     성공(결과);     //
   });
-  var 결과 = await 어려운연산;
+  var 결과 = await 어려운연산;    //
   console.log(결과);
 }
 더하기34_4();
 
 
-//
+/* 8-2) await은 실패하면 에러가 나고 코드가 멈춥니다
+
+8-4) try{ } catch{ } 
+
+코드실행을 멈추고 싶지 않으면 약간 특별한 방법이 필요합니다. 
+try catch라는 자바스크립트 문법인데,
+try {} 안의 코드가 에러가 나고 멈출 경우, 대신 catch {} 내부의 코드를 실행해줍니다. 
+*/
+
+
+
 async function 더하기34_5(){
   var 어려운연산 = new Promise((성공, 실패)=>{
     실패();
   });
-  try {  var 결과 = await 어려운연산 }
+  //   var 결과 = await 어려운연산; // 8-2)
+  try {  var 결과 = await 어려운연산 }    // -4)
   catch { console.log(' 어려운연산 Promise가 실패할 경우 실행할 코드') }
 }
 
