@@ -17,12 +17,209 @@
     ></script>
 
     <!-- jQuery CDN 파일 -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
+    <section>
+      <p class="title">🚀알고리즘 공식:</p>
+      <!-- 
+        <● 🚀알고리즘 공식:  > 
+      
+      🚀UI만들기 공식
+      1. HTML/CSS로 미리 디자인해놓기
+      2. 평소엔 안보이게 숨기기
+      3. 버튼을 눌렀을 때 보여주기  */
+
+      🚀알고리즘 공식 : 
+      (pseudo coding) 먼저 한글로 알고리즘을 작성해보고, 그에 따라서 코딩함 
+
+      여러개 기능일때, 일단 하나만 먼저 개발하면서, step by step하면 쉬움
+
+      🚀알고리즘 공식 2 : 
+      어려운 문제를 맞닥뜨리면 쉬운 것 부터 차근차근 해결해나가시면 됩니다. 구현할게 많으면 일단
+      
+      가장 쉬워보이는 것 부터 구현해봅니다. 
+
+      하드코딩 먼저 하고 👉 소프트코딩 구현 
+
+      (ex. 반복문이 쓰기전에, 하드코딩)
+
+      🚀알고리즘 공식3: pseudo coding 👉 hard coding 👉 soft coding
+
+
+      🚀JS 애니메이션 만드는 공식
+
+      1. 시작화면/ 최종화면 만들기
+
+      2. 자바스크립트로 트리거를 주기
+
+      3. 스무스한 동작 : css transition애니메이션 사용 
+
+      (+  css class에 스타일링해서 classList로 붙이는 방식으로 개발하자 )
+
+
+      🚀 변수지정 공식 : 
+
+      ~~~ 저장하는 변수 제작
+
+      반복문이 돌때마다 a값은 1,2,3,4,5
+
+      반복문 돌때마다 ~~~에 a를 더함
+
+
+
+      🚀this 공식 : 
+
+      --2강--
+      ⚡초보로써, 쓸때마다 'console.log(this);'해서 어느것인지 확인하는 습관 들이자
+
+      그냥 썼을때 : window (그냥 썼을때 window 출력된것은 window 가 global object이라서 )
+
+      object안의 함수(method)안의 this : 그 function을 가지고 있는 object
+
+      일반function 내부에서의 this:   전역객체 window 
+
+      'use strict' mode + 일반함수 안에서 쓰면 undefined
+
+      method(object안의 function)안의... this : 그 function을 가지고 있는 object 전체
+
+
+      --3강--
+      2) constructor안에서 this:
+      : instance를 뜻함 
+      :  = 새로 생성되는 object
+
+      4) eventListener안에서 this:
+      : e.currentTarget을 뜻함
+
+      eventListener안의... this : =e.currentTarget. 
+
+      콜백함수 안의 this = 일반함수 안의 this = window
+      (ex. eventlister안의 일반함수 안의, forEach함수안의 일반함수 =  콜백함수 )
+
+
+      6) object안의 함수(method)안의 this : 그 function을 가지고 있는 object  (c2에서 다룬 내용)
+
+      6-3) arrow function 안의 this: 무조건 바로 위의 this 값을 따라감
+      (👉4강에서 추가 설명)
+
+      object안의 arrow function 안의..this : window  (👉6강에서 추가 설명)
+
+      object안의 function안의 arrow function 안의... this : object
+
+      👉
+      this를 재설정하지않고 바로 위의 this 값을 그대로 물려받아서 사용.
+      arrow function을 사용하는 이유 &장점  
+
+
+      --4강--
+      🚀arrow function의 this :
+      arrow function을 쓰면 내부에서 this값을 쓸 때 밖에 있던 this값을 그대로 사용합니다.
+
+      (eventListener + function 안의... this : = e.currentTarget. )
+
+      eventListener + arrow function 안의... this : window
+      👉this대신 e.currnetTarget 쓰면 e.currnetTarget 정확히 타겟팅 됨 
+      eventListener + arrow function 안의... e.currnetTarget
+
+      (object + function안의... this : object)
+
+      object + arrow function안의... this : window 
+
+
+      --6강--
+      -a: 일반function + this : setTimeout안의 함수는 콜백함수 = 일반함수 👉 콜백함수의 this = window 
+
+      -b: arrow function + this  = arrow function밖에 있던 this값 (eventListener +function안의..this) 그대로 사용 = e.currentTarget
+
+
+
+      🚀...rest파라미터 공식   (👉18강에서 설명)
+
+      1. 괄호 제거해줌
+
+      2. 문자를 array로 만들어줌 
+
+      3. function(...){}  : 함수 소괄호.... spread operator VS Rest 파라미터
+
+      function 함수(...){}  👉 함수를 선언할때의 …은 rest 파라미터
+
+      함수(...);  👉 함수를 사용할때의 …은 spread Operator입니다. 
+       -->
+    </section>
+
+    <section>
+      <p class="title">🚀this 공식 :</p>
+      <!-- 
+
+      🚀this 공식 : 
+
+      --2강--
+      ⚡초보로써, 쓸때마다 'console.log(this);'해서 어느것인지 확인하는 습관 들이자
+
+      그냥 썼을때 : window (그냥 썼을때 window 출력된것은 window 가 global object이라서 )
+
+      object안의 함수(method)안의 this : 그 function을 가지고 있는 object
+
+      일반function 내부에서의 this:   전역객체 window 
+
+      'use strict' mode + 일반함수 안에서 쓰면 undefined
+
+      method(object안의 function)안의... this : 그 function을 가지고 있는 object 전체
+
+
+      --3강--
+      2) constructor안에서 this:
+      : instance를 뜻함 
+      :  = 새로 생성되는 object
+
+      4) eventListener안에서 this:
+      : e.currentTarget을 뜻함
+
+      eventListener안의... this : =e.currentTarget. 
+
+      콜백함수 안의 this = 일반함수 안의 this = window
+      (ex. eventlister안의 일반함수 안의, forEach함수안의 일반함수 =  콜백함수 )
+
+      6) object안의 함수(method)안의 this : 그 function을 가지고 있는 object  (c2에서 다룬 내용)
+
+      6-3) arrow function 안의 this: 무조건 바로 위의 this 값을 따라감
+      (👉4강에서 추가 설명)
+
+      object안의 arrow function 안의..this : window  (👉6강에서 추가 설명)
+
+      object안의 function안의 arrow function 안의... this : object
+
+      👉
+      this를 재설정하지않고 바로 위의 this 값을 그대로 물려받아서 사용.
+      arrow function을 사용하는 이유 &장점  
+
+
+      --4강--
+      🚀arrow function의 this :
+      arrow function을 쓰면 내부에서 this값을 쓸 때 밖에 있던 this값을 그대로 사용합니다.
+
+      (eventListener + function 안의... this : = e.currentTarget. )
+
+      eventListener + arrow function 안의... this : window
+      👉this대신 e.currnetTarget 쓰면 e.currnetTarget 정확히 타겟팅 됨 
+      eventListener + arrow function 안의... e.currnetTarget
+
+      (object + function안의... this : object)
+
+      object + arrow function안의... this : window 
+
+
+      --6강--
+      -a: 일반function + this : setTimeout안의 함수는 콜백함수 = 일반함수 👉 콜백함수의 this = window 
+
+      -b: arrow function + this  = arrow function밖에 있던 this값 (eventListener +function안의..this) 그대로 사용 = e.currentTarget
+
+       -->
+    </section>
     <section class="c3">
       <p class="title">🦄c2 this 1: object안의... this</p>
       <p class="title">
@@ -177,23 +374,29 @@
       <p class="title">🦄🦄c32 (ES6) Promise, .then, .catch</p>
 
       <p class="title">
-        🦄🦄c33 Promise 연습문제 & 해설, 로딩하기, ajax요청하기, Promise chaining
+        🦄🦄c33 Promise 연습문제 & 해설, 로딩하기, ajax요청하기, Promise
+        chaining
       </p>
       <!-- 2) -->
-      <img id="test" src="https://codingapple1.github.io/kona.jpg"> 
+      <img id="test" src="https://codingapple1.github.io/kona.jpg" />
     </section>
 
     <section class="c34">
-      <p class="title">🦄🦄c34 (es8) async, await, try{}, catch{} (Promise 보다 쉬움)</p>
+      <p class="title">
+        🦄🦄c34 (es8) async, await, try{}, catch{} (Promise 보다 쉬움)
+      </p>
 
       <button id="test34">test34</button>
     </section>
 
     <section class="c35">
-      <p class="title">🦄🦄c35 for in / for of 반복문과 enumerable, iterable 속성 </p>
+      <p class="title">
+        🦄🦄c35 for in / for of 반복문과 enumerable, iterable 속성
+      </p>
       <p class="title">🦄🦄c36 Symbol 자료형, Symbol.for</p>
-      <p class="title">🦄🦄c37 map(.) = object와 비슷함, set(.) = array와 비슷함</p>
+      <p class="title">
+        🦄🦄c37 map(.) = object와 비슷함, set(.) = array와 비슷함
+      </p>
     </section>
-
   </body>
 </html>
