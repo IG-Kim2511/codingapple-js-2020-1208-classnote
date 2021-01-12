@@ -2918,3 +2918,101 @@ console.log(a === b);     //true
 */
 var array = [2,3,4];
 console.log(array[Symbol.iterator]);
+
+
+//🦄🦄c37 map(.) = object와 비슷함, set(.) = array와 비슷함
+console.log('🦄🦄🦄🦄c37')
+
+/* 2) map(.) = object와 비슷함 (별로 사용 안함)
+
+Object자료형과 똑같이 key, value 형태로 자료를 저장할 수 있는 자료형입니다. 
+
+-4)
+console에 출력해보면, object와 달리 화살표로 나타내줍니다. 
+왜냐면 Map 자료형은 자료의 연관성을 표현하기 위해 쓰기 때문입니다. 
+
+그냥 key, value형식으로 저장하려면 Object 쓰시면 되고,
+name이 Kim과 연관되어있다~ 라고 저장하고 싶으면 Map을 쓰시면 됩니다. 
+
+-6)
+Map 자료형은 key, value값에 모든 자료를 집어넣을 수 있습니다. 
+
+key값란에...자료의 이름으로 array도 되고 object도 됩니다
+*/
+
+var person37 = new Map();   //2)
+person37.set('name', 'Kim');   //2)
+person37.set([1,2,3], 20);    //2-6)
+
+console.log(person37)   //2-4)
+
+
+// 4) Map 사용법
+var person37_2 = new Map();
+person37_2.set('age', 20);
+
+person37_2.get('age'); //자료 꺼내는 법
+person37_2.delete('age'); //자료 삭제하는 법
+person37_2.size; //자료 몇갠지 알려줌
+
+//-4) Map자료 반복문 돌리기
+for (var key of person37_2.keys() ){
+  console.log(key)
+}
+
+/* -6) 자료를 직접 집어넣기. 2) 예제와 같은 의미 */
+
+var person37_2 = new Map([
+  ['age', 20],
+  ['name', 'Kim']
+]); 
+
+
+/* 6) set(.) = array와 비슷함 (자주 사용함)
+
+-1) new Set( [ ] );
+
+-2)
+출력해보면  { }중괄호로 표현이 되죠? 
+
+중괄호지만 Array와 유사하게 생겼습니다. 
+
+-4)
+중복자료를 절대 허용하지 않습니다. 
+
+tom이라는걸 두개 집어넣었었는데, 지금 tom은 하나만 출력됩니다. 
+
+이렇게 중복 데이터를 방지하고 싶을 때 쓰시면 유용한 자료형입니다. 
+ */
+
+//  8) set(.) 사용법 - .add, .has, .size
+
+var 출석부2_2 = new Set([ 'john' ,  'andy','tom', 'tom' ]);   // -1) -4)
+
+console.log(출석부2_2);   //-2) 
+
+
+var 출석부2 = new Set([ 'john' , 'andy', 'tom', 'tom' ]);
+
+출석부2.add('sally'); //자료더하기 
+console.log(출석부2)
+
+출석부2.has('tom'); //자료있는지 확인
+console.log(출석부2.has('tom'))
+
+출석부2.size;  //자료 몇갠지 세기
+console.log(출석부2.size)
+
+/* 
+10) 특히 Array의 데이터 중복제거할 때 많이 씁니다.
+이런 패턴으로 많이 합니다.
+
+예제는 출석부라는 Array자료형을 Set으로 바꿨다가 다시 바로 Array로 바꾸는 예제입니다.
+
+ */
+
+var 출석부5 = [ 'john' , 'tom', 'andy', 'tom' ];
+
+var 출석부6 = new Set(출석부5); //Array를 Set으로 바꾸기
+
+출석부5 = [...출석부6]  //Set을 Array로 바꾸기
