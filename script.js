@@ -1176,7 +1176,7 @@ p1.introduce();
 p2.introduce();
  
 
-// 🦄🦄c20 객체지향1. constructor (Object 생성기계)
+// 🦄🦄c20 constructor (Object 생성기계) 👉object- constructor - class 연결됨
 console.log('🦄🦄🦄🦄c20')
 
 /* 
@@ -1283,7 +1283,7 @@ var product1 = new Product('shirts', 50000);
 var product2 = new Product('pants', 60000);
 
 
-// 🦄🦄c21 객체지향2. prototype과 constructor. Array의 prototype
+// 🦄🦄c21 prototype과 constructor. Array의 prototype
 console.log('🦄🦄🦄🦄c21')
 
 /* 1) point : 
@@ -1366,7 +1366,7 @@ var obj = {name: 'kim'} /* 나의코딩 */
 var obj = new Object(); /* 컴퓨터가 받아들인 코딩 */
 
 
-// 🦄🦄c22 객체지향3. prototype, __proto__
+// 🦄🦄c22 prototype, __proto__
 console.log('🦄🦄🦄🦄c22')
 
 /* 
@@ -1614,7 +1614,7 @@ var 손자 = Object.create(자식); //4)
 // console.log(손자.age);
 
 
-// 🦄🦄c25 객체지향4. class (ES6 상속기능)
+// 🦄🦄c25 class (ES6 상속기능)
 console.log('🦄🦄🦄🦄c25')
 /*
 2) class 키워드로 구현하는 constructor 기계만들기
@@ -1673,7 +1673,7 @@ var child25_3 = new Parents부모25_3('Park', 30);
 console.log(child25_3)
 
 
-// 🦄🦄c26 객체지향5. class... extends / super(파라미터);
+// 🦄🦄c26 class... extends / super(파라미터);
 console.log('🦄🦄🦄🦄c26')
 
 /* 
@@ -2348,8 +2348,9 @@ let {
 */
 
 
-//🦄🦄c31 Synchronous/ asynchronous / web API / callback function (동기,비동기,콜백함수)
+//🦄🦄c31 콜백함수, Synchronous, asynchronous, web API(동기,비동기)
 console.log('🦄🦄🦄🦄c31')
+// 👉콜백함수 - Promise - async, await연결됨
 
 
 /* 2) 자바스크립트는 항상 동기식 처리 (synchronous)
