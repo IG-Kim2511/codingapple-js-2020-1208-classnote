@@ -2620,7 +2620,7 @@ function ajax해주는함수(parm){    //-2) -6)
   });
 }
 
-// 🦄🦄c34 (es8) async, await, try{}, catch{} (Promise 보다 쉬움)
+// 🦄🦄c34 async, await, try{}, catch{} (Promise 보다 쉬움)(es8)
 console.log('🦄🦄🦄🦄c34')
 
 // 2) promise 예시 복습
@@ -2889,10 +2889,10 @@ var array = [2,3,4];
 console.log(array[Symbol.iterator]);
 
 
-//🦄🦄c37 map(.) = object와 비슷함, set(.) = array와 비슷함
+//🦄🦄c37 Map(.) = object와 비슷함, Set(.) = array와 비슷함
 console.log('🦄🦄🦄🦄c37')
 
-/* 2) map(.) = object와 비슷함 (별로 사용 안함)
+/* 2) Map(.) = object와 비슷함 (별로 사용 안함)
 
 Object자료형과 똑같이 key, value 형태로 자료를 저장할 수 있는 자료형입니다. 
 
