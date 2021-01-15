@@ -70,16 +70,26 @@ object1.object2.간지함수();
 
 
 /*🦄c3 this 2: eventListener안. constructor안. object안. arrow function안의 this */
-/* 
-🍉this
 
-2)⚡ constructor안에서 this:
+
+/* 2)⚡ constructor안에서 this:
 : instance를 뜻함 
 :  = 새로 생성되는 object
 
+object를 여러개 만들고싶을때, function을 이용해서 여러개 만들 수 있음.
+function 안에 this를 쓰면 constructor가 됨
+this는 새로 생성되는 object이고, instance라고 불림. */
+
+
+function 기계() {
+  this.이름 = "Kim";
+}
+var 오브젝트 = new 기계();
+
+/* 
 4)⚡ eventListener안에서 this:
 : e.currentTarget을 뜻함
-: 지금 이벤트가 동작하는 곳 
+: 지금 addEventListener가 붙은 HTML 요소, 지금 이벤트가 동작하는 곳 
 : ex)  여기에서는 클릭이벤트가 동작하는 곳...'버튼'을 뜻함
 
 4-2)
@@ -87,34 +97,7 @@ eventListener안의... this : =e.currentTarget.
 
 콜백함수 안의 this = 일반함수 안의 this = window
 (ex. eventlister안의 일반함수 안의, forEach함수안의 일반함수 =  콜백함수 )
-
-
-6) object안의 함수(method)안의 this : 그 function을 가지고 있는 object (c2에서 다룬 내용)
-
-6-3)⚡ arrow function 안의 this: 무조건 바로 위의 this 값을 따라감
- (👉4강에서 추가 설명)
-
-object안의 arrow function 안의..this : 여기 예시에서는.. window (👉6강에서 추가 설명)
-
-object안의 function안의 arrow function 안의... this : object
-
-👉
- this를 재설정하지않고 바로 위의 this 값을 그대로 물려받아서 사용.
- arrow function을 사용하는 이유 &장점  
 */
-
-/* 2) constructor  (나중에 자세히 설명함)
-object를 여러개 만들고싶을때, function을 이용해서 여러개 만들 수 있음.
-function 안에 this를 쓰면 constructor가 됨
-this는 새로 생성되는 object이고, instance라고 불림. */
-
-function 기계() {
-  this.이름 = "Kim";
-}
-var 오브젝트 = new 기계();
-
-
-// 4)
 
 document.getElementById("버튼").addEventListener("click", function () {
   console.log(this);  /* 4) */
@@ -133,13 +116,31 @@ document.getElementById("버튼2").addEventListener("click", function (e) {
   });
 });
 
-// 6)
+/* 6) arrow function ..this vs 일반function..this비교
+
+object안의 일반함수(method)안의 this : 그 function을 가지고 있는 object (c2에서 다룬 내용)
+
+arrow function 안의 this
+: 바로 위의 this 값을 따라감
+: this를 재설정하지않고 바로 위의 this 값을 그대로 물려받아서 사용.
+ arrow function을 사용하는 이유 &장점 (👉4강, 6강 에서 추가 설명)
+
+6-2) object안 function안의 함수...this로 비교하기
+
+6-2-2) object안 function...this : object
+
+6-2-4) object안 function안의 function...this : window (window오브젝트에서 해당 function을 가져옴)
+
+6-2-6) object안 function안의 arrow funciton... this: object
+*/
+
 
 var 오브젝트 = {
   이름들: ["김", "이", "박"],
   함수: function () {
-    오브젝트.이름들.forEach(function () {     /*  6-2) */
-      console.log(this);  
+    console.log(this)         // 6-2-2) 오브젝트
+    오브젝트.이름들.forEach(function () {     
+      console.log(this);        // 6-2-4) window
     });
   },
 };
@@ -151,8 +152,9 @@ var 오브젝트 = {
 var 오브젝트2 = {
   이름들: ["사과", "바나나", "딸기"],
   함수: function () {
-    오브젝트.이름들.forEach(() => {   /* 6-3)arrow function 안의 this: 여기서는 window */
-      console.log(this);  
+      console.log(this)         // 6-2-2) 오브젝트2
+    오브젝트.이름들.forEach(() => { 
+      console.log(this); //6-3)arrow function 안의 this:위의 this를 물려받아서 오브젝트2
     });
   },
 };
