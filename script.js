@@ -2,7 +2,8 @@
 
 
 /*🦄c2 this 1: object안의... this */
-console.log('🦄🦄c2')
+console.log('🦄🦄🦄🦄c2')
+
 /* 
 🚀this 공식 : 
 초보로써, 쓸때마다 'console.log(this);'해서 어느것인지 확인하는 습관 들이자
@@ -71,8 +72,7 @@ object1.object2.간지함수();
 
 
 /*🦄c3 this 2: eventListener안. constructor안. object안. arrow function안의 this */
-console.log('🦄🦄c3')
-
+console.log('🦄🦄🦄🦄c3')
 
 /* 2)⚡ constructor안에서 this:
 : instance를 뜻함 
@@ -164,7 +164,7 @@ var 오브젝트2 = {
 
 
 //🦄c4 arrow function 설명, arrow function의 this (this3:)
-console.log('🦄🦄c4')
+console.log('🦄🦄🦄🦄c4')
 
 /*
 2-1) 일반함수 만들기.
@@ -259,7 +259,7 @@ eventListener안의 '일반함수vs arrow function'...this로 서로 비교하�
 */
 
 //  🦄c5 🦄c6 this & arrow function 연습문제 해설
-console.log('c6')
+console.log('🦄🦄🦄🦄c5,c6')
 // 👻캡쳐필기노트
 
 // 2) q: 사람.sayHi()라고 작성하면 콘솔창에 ‘안녕 나는 손흥민’ 이라는 글자가 나와야합니다. 
@@ -381,16 +381,19 @@ document.querySelector('.c5 #버튼3').addEventListener('click', function(){
 
 
 // 🦄c7 var let const와 assign,declare,scope (변수 신문법 총정리 1.)
+console.log('🦄🦄🦄🦄c37')
 // 👉js기초 15강
 
-
 // 🦄c8 Hoisting, global variable(window variable), closure (변수 신문법 총정리 2.)
+console.log('🦄🦄🦄🦄c8')
 // 👻캡쳐필기노트
 
 // 🦄c9 c10 변수, temporal deadzone, uninitialized, eventlistener-for반복문-let(변수 연습문제 해설)
+console.log('🦄🦄🦄🦄c9.10')
 // 👻캡쳐필기노트
 
 // 🦄c11 Template literals(backquote). Tagged literal
+console.log('🦄🦄🦄🦄c11')
 
 // 2) Template literals(backquote)
 // -1. 문자 중간 엔터키 입력이 가능합니다
@@ -461,6 +464,7 @@ function 해체분석기(param1문자들, parma2변수들){  /* 6-1) */
 
 
 //🦄c12 Template literals / tagged literals 연습문제해설
+console.log('🦄🦄🦄🦄c12')
 
 // 2-Q) pants라는 변수가 0인 경우 ,`바지다팔렸어요 양말100`이라고 문자를 아예 바꿔버리고 싶습니다. 
 
@@ -477,6 +481,7 @@ function 해체분석기(글자들, 변수들1, 변수들2){
 
 
 // 🦄c13 Spread Operator1: reference data type.  Deep copy
+console.log('🦄🦄🦄🦄c13')
 /* 
 🍉2) spread operator :  “괄호제거 해주는 연산자”
 
@@ -563,7 +568,7 @@ console.log(o2);
 
 
 // 🦄c14 Spread Operator2: array를 함수안의 parameter로 넣기, apply, call 함수
-console.log('c14')
+console.log('🦄🦄🦄🦄c14')
 
 
 // 🍉2) array data [10,20,30]을 함수안의 parameter로 집어넣으려면?
@@ -648,7 +653,7 @@ person.인사.call(person2, 1,2,3);   /*-2)*/
 
 
 // 🦄c15 default parameter/ arguments (함수 능력 업그레이드)
-
+console.log('🦄🦄🦄🦄c15')
 
 /* 🍉2) default 파라미터
 파라미터에 기본값(default 값)을 줄 수 있습니다. */
@@ -727,12 +732,12 @@ let sum = 0;
 
 
 // 🦄🦄c16 ...Rest 파라미터
+console.log('🦄🦄🦄🦄c16')
 
 /* 
 🍉2) arguments VS Rest 파라미터
 
 arguments는 옛날 문법 ,  ...rest파라미터가 더 유연함
-
 
 2-4) 
 🚀...rest파라미터 공식   (👉18강에서 설명)
@@ -746,15 +751,12 @@ arguments는 옛날 문법 ,  ...rest파라미터가 더 유연함
 function 함수(...){}  👉 함수를 선언할때의 …은 rest 파라미터
 
 함수(...);  👉 함수를 사용할때의 …은 spread Operator입니다. 
-
-
 */
-
 
 // 🍉4) a,b제외하고, 그 뒤에 나오는 모든 파라미터는 중괄호에 감싸서 array가 됩니다. 
 
-function 함수16(a, b, ...파라미터들){    /* 👈  */
-  console.log(파라미터들) /*  [3,4,5,6,7]이 출력됩니다. */
+function 함수16(a, b, ...rest파라미터들){    /* 👈  */
+  console.log(rest파라미터들) /*  [3,4,5,6,7]이 출력됩니다. */
 }
 
 함수16(1,2,3,4,5,6,7);
@@ -763,15 +765,15 @@ function 함수16(a, b, ...파라미터들){    /* 👈  */
 /* 4-4)
 rest는 항상 마지막 파라미터로 넣으셔야합니다. 
 
-function 함수2(a, ...파라미터들, b){  👈
-  console.log(파라미터들)
+function 함수2(a, ...rest파라미터들, b){  👈
+  console.log(rest파라미터들)
 }
 
 4-6)
 2개 이상 사용할 수 없습니다
 
-function 함수2(a, ...파라미터들, ...파라미터들2){   👈
-  console.log(파라미터들)
+function 함수2(a, ...rest파라미터들, ...rest파라미터들2){   👈
+  console.log(rest파라미터들)
 }
 */
 
@@ -786,7 +788,7 @@ function 함수16_2(a,b,...rest){
 
 
 // 🦄🦄c17 18 Spread operator, ...rest 연습문제 답 .Math.max(.) .sort(.) .join(.)
-console.log('c18')
+console.log('🦄🦄🦄🦄c17,c18')
 
 /* 1)  spread 문제
 [‘김’, ‘밥’, 1, 2, 3 ] 이라는 array가 출력됩니다. 
@@ -952,6 +954,7 @@ function 글자세기(글){
 
 
 // 🦄🦄c19 Reference data type: array, object (Primitive data type : string, number)
+console.log('🦄🦄🦄🦄c19')
 
 /* 2)
 Primitive data type들은 그냥 별건 없고 자료 자체가 변수에 저장되는 자료들입니다. 
@@ -1050,6 +1053,7 @@ console.log(이름1);
 
 
 /* 🦄🦄c20-0 1분코딩 object정리 */
+console.log('🦄🦄🦄🦄c20-0')
 
 /* Object */
 console.log("Object");
@@ -1173,7 +1177,7 @@ p2.introduce();
  
 
 // 🦄🦄c20 객체지향1. constructor (Object 생성기계)
-console.log('c20')
+console.log('🦄🦄🦄🦄c20')
 
 /* 
 0) object문법 : 객체지향 프로그래밍(Object-oriented programming : OOP) 
@@ -1280,6 +1284,7 @@ var product2 = new Product('pants', 60000);
 
 
 // 🦄🦄c21 객체지향2. prototype과 constructor. Array의 prototype
+console.log('🦄🦄🦄🦄c21')
 
 /* 1) point : 
 
@@ -1362,6 +1367,7 @@ var obj = new Object(); /* 컴퓨터가 받아들인 코딩 */
 
 
 // 🦄🦄c22 객체지향3. prototype, __proto__
+console.log('🦄🦄🦄🦄c22')
 
 /* 
 1) prototype은 constructor 함수에만 몰래 생성됩니다.
@@ -1440,7 +1446,7 @@ var 학생1 = new Constructor22_2();  /*  */
 
 
 // 🦄🦄c23 constructor, prototype 연습문제, 나만의 내장함수 라이브러리 만들기
-console.log('c23')
+console.log('🦄🦄🦄🦄c23')
 
 /* 1) 하드코딩 */
 var 학생1 = { name : 'Kim', age : 20 }
@@ -1552,6 +1558,7 @@ console.log(arr); //[1,2,4]
 
 
 // 🦄🦄c24 Object.create(.); (ES5 상속기능)
+console.log('🦄🦄🦄🦄c24')
 /* 
 Object.create(부모object); 
 
@@ -1608,6 +1615,7 @@ var 손자 = Object.create(자식); //4)
 
 
 // 🦄🦄c25 객체지향4. class (ES6 상속기능)
+console.log('🦄🦄🦄🦄c25')
 /*
 2) class 키워드로 구현하는 constructor 기계만들기
 
@@ -1666,6 +1674,7 @@ console.log(child25_3)
 
 
 // 🦄🦄c26 객체지향5. class... extends / super(파라미터);
+console.log('🦄🦄🦄🦄c26')
 
 /* 
 2) extends / super(파라미터);
@@ -1739,6 +1748,7 @@ console.log(var아버지);
 
 
 /*🦄🦄c27 함수이용...object 데이터 수정하기, getter, setter  */
+console.log('🦄🦄🦄🦄c27')
 
 /* 
 🍉2) 기본 오브젝트 문법 - 직접.. object 데이터 수정 */
@@ -1916,6 +1926,7 @@ function 쓰고 나서 그 자리에 뭔가 값을 뾰롱 남기고 싶으면 re
 
 
 //🦄🦄c28-2 class, extends, getter, setter 연습문제 답안
+console.log('🦄🦄🦄🦄c28-2')
 
 /* 
 🍉1) class 구조 만들어보기
@@ -2164,10 +2175,9 @@ console.log(data28_2.getter함수);
 
  
 
-/* 
-🦄🦄c29 Destructuring 문법-variable, array, object, function
-
+/* 🦄🦄c29 Destructuring 문법-variable, array, object, function
  destructuring 문법을 사용하면 변수를 쉽게 만들 수 있습니다.   */
+console.log('🦄🦄🦄🦄c29')
 
 // 🍉2. Array 안에 있는 데이터를 변수에 담는 방법 
 
@@ -2339,7 +2349,8 @@ let {
 
 
 //🦄🦄c31 Synchronous/ asynchronous / web API / callback function (동기,비동기,콜백함수)
-console.log('🦄c31')
+console.log('🦄🦄🦄🦄c31')
+
 
 /* 2) 자바스크립트는 항상 동기식 처리 (synchronous)
 
@@ -2416,7 +2427,7 @@ ex)
  */
 
 //  🦄🦄c32 (ES6) Promise, .then, .catch
-console.log('🦄c32 (ES6) Promise')
+console.log('🦄🦄🦄🦄c32')
 
 /* 2)
 자바스크립트의 새로운 기능이라기보다는,  코드/함수 디자인 패턴일 뿐입니다.
@@ -2502,7 +2513,7 @@ var 프로미스3 = new Promise(function(resolve실행완료, reject거부){
 
 
 // 🦄🦄c33 Promise 연습문제 & 해설, 로딩하기, ajax요청하기, Promise chaining 
-console.log('🦄c33')
+console.log('🦄🦄🦄🦄c33')
 
 /* 
 2) <img> 이미지 로딩 성공시 특정 코드를 실행하고 싶습니다. (👉html)
@@ -2609,7 +2620,7 @@ function ajax해주는함수(parm){    //-2) -6)
 }
 
 // 🦄🦄c34 (es8) async, await, try{}, catch{} (Promise 보다 쉬움)
-console.log('🦄c34')
+console.log('🦄🦄🦄🦄c34')
 
 // 2) promise 예시 복습
 var 프로미스34 = new Promise(function(resolve실행완료,reject거부){      // 4-2)
@@ -2719,7 +2730,8 @@ async function 버튼누르기34(){
 버튼누르기34();
 
 // 🦄🦄c35 for in / for of 반복문과 enumerable, iterable 속성
-console.log('🦄c35')
+console.log('🦄🦄🦄🦄c35')
+
 /* 
 1) 반복문의 용도
 
@@ -2809,7 +2821,7 @@ for (var 자료 of 어레이) {
 
 
 //🦄🦄c36 Symbol 자료형, Symbol.for
-console.log('🦄c36')
+console.log('🦄🦄🦄🦄c36')
 
 /* 2)
 ES6부터 Symbol 이라는 Primitive 자료형 추가됨
