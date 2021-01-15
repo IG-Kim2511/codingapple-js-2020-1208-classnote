@@ -2,6 +2,7 @@
 
 
 /*🦄c2 this 1: object안의... this */
+console.log('🦄🦄c2')
 /* 
 🚀this 공식 : 
 초보로써, 쓸때마다 'console.log(this);'해서 어느것인지 확인하는 습관 들이자
@@ -70,6 +71,7 @@ object1.object2.간지함수();
 
 
 /*🦄c3 this 2: eventListener안. constructor안. object안. arrow function안의 this */
+console.log('🦄🦄c3')
 
 
 /* 2)⚡ constructor안에서 this:
@@ -125,7 +127,7 @@ arrow function 안의 this
 : this를 재설정하지않고 바로 위의 this 값을 그대로 물려받아서 사용.
  arrow function을 사용하는 이유 &장점 (👉4강, 6강 에서 추가 설명)
 
-6-2) object안 function안의 함수...this로 비교하기
+6-2) object안 function안의 '일반함수vs arrow function'...this로 서로 비교하기
 
 6-2-2) object안 function...this : object
 
@@ -161,7 +163,8 @@ var 오브젝트2 = {
 오브젝트2.함수();
 
 
-// 🦄c4 this3 : Arrow function의 this, arrow function쓰는 법
+//🦄c4 arrow function 설명, arrow function의 this (this3:)
+console.log('🦄🦄c4')
 
 /*
 2-1) 일반함수 만들기.
@@ -172,19 +175,25 @@ var 함수 = function( ){ }  /* 2-1)  */
 함수();  /* 2-2)  */
 
 
-/* 4)
-⚡Arrow function 쓰는 이유
-1. input, output 보기 쉬윔
-2. parameter 의 round braket ( ) 생략 가능 (parameter이 1개일때)
-3. curly braket { } 생략 가능
-4. return 생략 가능
- */
+/* 4) ⚡Arrow function 쓰는 법 , 이유
+-0. var변수화를 통해서 ()안에 파라미터 넣을 수 있음
 
-var 함수 = function(x){return x*2 }
+-1. input, output 보기 쉬윔
 
-var 애로우2 = x => { return x * 2 }
+-2. parameter 의 round braket ( ) 생략 가능 (parameter이 1개일때)
 
-var 애로우3 = x => x * 2 ;
+-3. curly braket { } 생략 가능
+
+-4. return 생략 가능
+*/
+
+var 애로우1 = function(x){return x*2 }
+
+애로우1(5);     //4-0)
+
+var 애로우2 = x => { return x * 2 }   //-2)
+
+var 애로우3 = x => x * 2 ;    //-3)
 
 
 /* 6)
