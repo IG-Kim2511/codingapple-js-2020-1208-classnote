@@ -131,7 +131,7 @@ arrow function 안의 this
 
 6-2-2) object안 function...this : object
 
-6-2-4) object안 function안의 function...this : window (window오브젝트에서 해당 function을 가져옴)
+6-2-4) object안 function안의 function...this : window (콜백함수: window오브젝트에서 해당 function을 가져옴)
 
 6-2-6) object안 function안의 arrow funciton... this: object
 */
@@ -247,6 +247,16 @@ var object4_2 = {
 object4_2.함수();
 console.log(object4_2.함수())
 
+
+//🦄🦄c4-2 '일반함수vs arrow function'...this로 서로 비교하기(me 정리)
+console.log('🦄🦄🦄🦄c4-2')
+// 👻캡쳐정리
+
+/* 
+object안 function안의 '일반함수vs arrow function'...this로 서로 비교하기
+
+eventListener안의 '일반함수vs arrow function'...this로 서로 비교하기
+*/
 
 //  🦄c5 🦄c6 this & arrow function 연습문제 해설
 console.log('c6')
