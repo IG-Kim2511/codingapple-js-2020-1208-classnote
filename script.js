@@ -953,7 +953,7 @@ function 글자세기(글){
   글자세기('aaccbbb');
 
 
-// 🦄🦄c19 Reference data type: array, object (Primitive data type : string, number)
+// 🦄🦄c19 Reference data type - array, object (Primitive data type - string, number) 
 console.log('🦄🦄🦄🦄c19')
 
 /* 2)
